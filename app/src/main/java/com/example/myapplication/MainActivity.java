@@ -2,12 +2,13 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.Button;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.LinkedList;
@@ -18,19 +19,33 @@ public class MainActivity extends AppCompatActivity {
     private String CurrLetter;
     private String CurrFloor;
     private String NextRoom;
-
     private String NextLetter;
-
-    private  String Nextfloor;
-
+    private String Nextfloor;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Clicking the button will swap to MainActivity2 for map stuff
+        //this shouldn't be activated unless valid input for letter, floor and roombut I don't know how to implemen
+
+        button = (Button) findViewById(R.id.button3);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+
+                openMainActivity2();
+            }
+        });
     }
 
+    public void openMainActivity2(){
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        startActivity(intent);
+    }
 
 
     public void CurEnter(View v){
@@ -168,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean CheckLetter(String L, String Str){
 
         boolean result= false;
-
+        //V: Does java have string to uppercase function?
         switch (L){  // switch case for the possible building letter including for possible lower case inputs
             case "A":
                 result = true;
