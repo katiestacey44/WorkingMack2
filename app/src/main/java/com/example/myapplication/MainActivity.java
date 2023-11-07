@@ -31,18 +31,13 @@ public class MainActivity extends AppCompatActivity {
         //Clicking the button will swap to MainActivity2 for map stuff
         //this shouldn't be activated unless valid input for letter, floor and roombut I don't know how to implemen
 
-        button = (Button) findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
 
-                openMainActivity2();
-            }
-        });
     }
 
-    public void openMainActivity2(){
+
+
+
+    public void openMainActivity2(View v){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
         startActivity(intent);
     }

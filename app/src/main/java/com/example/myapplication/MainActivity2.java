@@ -18,7 +18,7 @@ import androidx.core.content.ContextCompat;
 
 
 public class MainActivity2 extends AppCompatActivity {
-    Context context;
+    private Context context;
     Resources resources;
     RelativeLayout relativeLayout;
     Button button;
