@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/c1map" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -37,10 +37,11 @@
 
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/ShowButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#5FB3AB"
+            android:onClick="ShowButton"
             android:text="Show"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -78,5 +79,14 @@
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/GoBackButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="532dp"
+        android:onClick="OnBackButton"
+        android:text="Go Back" />
 
 </RelativeLayout>
