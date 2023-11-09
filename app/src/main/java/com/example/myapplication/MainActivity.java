@@ -15,6 +15,7 @@ import java.util.LinkedList;
 
 
 public class MainActivity extends AppCompatActivity {
+
     private String CurrentRoom;
     private String CurrLetter;
     private String CurrFloor;
@@ -23,10 +24,14 @@ public class MainActivity extends AppCompatActivity {
     private String Nextfloor;
     private Button button;
 
+   private MainActivity2 A2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        A2 = new MainActivity2();
+
 
         //Clicking the button will swap to MainActivity2 for map stuff
         //this shouldn't be activated unless valid input for letter, floor and roombut I don't know how to implemen
@@ -35,11 +40,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     public void openMainActivity2(View v){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
         startActivity(intent);
+
     }
 
 
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             CurrentRoom = CurrentN;                     // set the input to the right variable
             Log.d("Current Room Number", CurrentN);
         ((TextView)findViewById(R.id.textCurr)).setText("Current room: " + CurrentL + " " + CurrentF + "-"+ CurrentN);
-
+            A2.setStart(Integer.parseInt(CurrentRoom));
     }
 
     public void NextEnter(View v){
@@ -102,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Next Room Number", NextN);
 
         ((TextView)findViewById(R.id.TextNext)).setText("Next room: " + NextL + " " + NextF + "-"+ NextN);
+
+        A2.setEnd(Integer.parseInt(NextRoom));
 
         // if i want a pop up Toast.makeText(this, String, Toast.LENGTH_LONG).show();
 
