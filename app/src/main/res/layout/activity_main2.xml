@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/c1map" />
 
     <ImageView
-        android:id="@+id/Map"
+        android:id="@+id/MapPath"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -25,10 +25,10 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="-19dp"
         android:layout_marginBottom="1dp"
         android:layout_toStartOf="@+id/imageView"
         android:background="#D24B7070"
@@ -45,6 +45,7 @@
             android:text="Show"
             android:textSize="14sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
@@ -71,8 +72,8 @@
             android:paddingTop="2.5dp"
             android:paddingEnd="2.5dp"
             android:paddingBottom="5dp"
-            android:textColor="@color/white"
             android:text="Next"
+            android:textColor="@color/white"
 
 
             android:textSize="16sp"
