@@ -1,17 +1,14 @@
 package com.example.myapplication;
 
+
+import java.util.LinkedList;
+
 public class C1floor {
 
     private int visited[];
-    private String result;
 
-
-    public void setVisited(int[] visited) {
-        this.visited = visited;
-    }
-
-    public String getString() {
-        return result;
+    public int[] getVisited() {
+        return visited;
     }
 
     /**
@@ -27,57 +24,66 @@ public class C1floor {
 
         int CurrentRoom = Integer.parseInt(CurrRoom);
         int desiredRoom = Integer.parseInt(NextRoom);
+        CurrentRoom -= 100;
+        desiredRoom -= 100;
 
 
-        Graph C1 = new Graph(31, desiredRoom);
+        Graph C1 = new Graph(58, desiredRoom);
 
 
-        C1.addEdge(102, 104); // the edges between all the room in the C1 floor
-        C1.addEdge(104, 110);
-        C1.addEdge(112, 114);
-        C1.addEdge(114, 120);
-        C1.addEdge(114, 130);
-        C1.addEdge(114, 140);
-        C1.addEdge(120, 126);
-        C1.addEdge(120, 127);
-        C1.addEdge(126, 125);
-        C1.addEdge(125, 132);
-        C1.addEdge(132, 133);
-        C1.addEdge(125, 124);
-        C1.addEdge(124, 123);
-        C1.addEdge(123, 122);
-        C1.addEdge(122, 121);
+        C1.addEdge(10, 12); // the edges between all the room in the C1 floor
+        C1.addEdge(12, 6);
+        C1.addEdge(6, 4);
+        C1.addEdge(6, 2);
+        C1.addEdge(6, 14);
+        C1.addEdge(14, 3);
+        C1.addEdge(3, 20);
+        C1.addEdge(20, 25);
+        C1.addEdge(20, 26);
+        C1.addEdge(20, 27);
+        C1.addEdge(20, 30);
+        C1.addEdge(20, 32);
+        C1.addEdge(20, 24);
+        C1.addEdge(24, 23);
+        C1.addEdge(23, 21);
 
-        C1.addEdge(140, 146);
-        C1.addEdge(146, 145);
-        C1.addEdge(140, 144);
-        C1.addEdge(144, 143);
-        C1.addEdge(143, 142);
-        C1.addEdge(142, 141);
-        C1.addEdge(140, 155);
+        C1.addEdge(23, 22);
+        C1.addEdge(32, 33);
+        C1.addEdge(3, 1);
+        C1.addEdge(1, 49);
+        C1.addEdge(49, 48);
+        C1.addEdge(1, 40);
+        C1.addEdge(40, 44);
 
-        C1.addEdge(155, 154);
-        C1.addEdge(154, 153);
-        C1.addEdge(153, 152);
-        C1.addEdge(152, 151);
-        C1.addEdge(155, 156);
-        C1.addEdge(156, 157);
+        C1.addEdge(44, 43);
+        C1.addEdge(43, 42);
+        C1.addEdge(42, 41);
+        C1.addEdge(40, 45);
+        C1.addEdge(40, 46);
+        C1.addEdge(40, 55);
+
+        C1.addEdge(40, 54);
+        C1.addEdge(54, 53);
+        C1.addEdge(53, 52);
+        C1.addEdge(52, 51);
+        C1.addEdge(51, 50);
+        C1.addEdge(55, 56);
+        C1.addEdge(55, 57);
 
 
 
 
 
         C1.DFS(CurrentRoom);
-        result = "";
-
         visited = C1.getVisited();
-
         for (int i = 0; i < visited.length; i++){
-            if (visited[i] != 0){
-                result = " -> " + visited[i];
-            }
+            visited[i] += 100;
         }
+
+
 
         // figure out how to display path on map
     }
 }
+
+

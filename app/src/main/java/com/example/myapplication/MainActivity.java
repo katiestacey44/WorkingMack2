@@ -123,11 +123,7 @@ public class MainActivity extends AppCompatActivity {
      * the user to decide which graph will need to be displayed in activity_main2
      */
 
-    public void PickGraphs(){
 
-                C1floor C = new C1floor(CurrentRoom, NextRoom);
-                PathGraph(C.getString());
-    }
 
     public void PathGraph(String v){
         ((TextView)findViewById(R.id.PathText)).setText("Path: "+ v);
