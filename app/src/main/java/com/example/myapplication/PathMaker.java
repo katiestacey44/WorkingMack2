@@ -74,12 +74,16 @@ public class PathMaker {
         pointArray[66] = new Point(165, 80);
         pointArray[67] = new Point(30, 100);
 
-        P.moveTo(Scale*pointArray[path[0]].getX(), Scale*pointArray[path[0]].getY());
+        float x = Scale*pointArray[path[0]].getX();
+        float y = Scale*pointArray[path[0]].getY();
+
+        P.moveTo(x, y);
 
         for (int i = 1; i < path.length; i++){
-            P.lineTo(Scale*pointArray[path[i]].getX(), Scale*pointArray[path[0]].getY());
+            x = Scale*pointArray[path[i]].getX();
+            y = Scale*pointArray[path[i]].getY();
+            P.lineTo(x, y);
         }
-
 
     }
 

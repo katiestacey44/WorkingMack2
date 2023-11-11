@@ -38,8 +38,8 @@
             android:id="@+id/CurrentRoomNum"
             android:layout_width="75dp"
             android:layout_height="48dp"
-            android:layout_marginStart="212dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="188dp"
+            android:layout_marginTop="48dp"
             android:hint="###"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +48,7 @@
             android:id="@+id/NextRoomNum"
             android:layout_width="75dp"
             android:layout_height="48dp"
-            android:layout_marginStart="212dp"
+            android:layout_marginStart="188dp"
             android:layout_marginBottom="16dp"
             android:hint="###"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -76,80 +76,27 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/CurrentLetterinput"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="50dp"
-            android:hint="C"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/CurrentFloorInput"
-            android:layout_width="50dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="136dp"
-            android:layout_marginTop="50dp"
-            android:hint="#"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NextLetterInput"
-            android:layout_width="50dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="88dp"
-            android:layout_marginBottom="16dp"
-            android:hint="C"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/NextFloorInput"
-            android:layout_width="50dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="136dp"
-            android:layout_marginBottom="16dp"
-            android:hint="#"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="20dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="188dp"
-            android:layout_marginTop="40dp"
-            android:text="-"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:id="@+id/textView3"
+            android:layout_width="58dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="56dp"
+            android:text="C1 -"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView5"
-            android:layout_width="20dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="184dp"
-            android:layout_marginBottom="16dp"
-            android:text="-"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:id="@+id/textView4"
+            android:layout_width="58dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="136dp"
+            android:text="C1 -"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/PathText"
-        android:layout_width="366dp"
-        android:layout_height="137dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="248dp"
-        android:text="path:"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="409dp"
@@ -183,10 +130,11 @@
         android:id="@+id/GoToMapButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="304dp"
         android:onClick="openMainActivity2"
         android:text="Go to map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PathText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

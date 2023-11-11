@@ -1,34 +1,16 @@
 package com.example.myapplication;
 
-
 import android.graphics.Path;
-
-import java.util.LinkedList;
 
 public class C1floor {
 
     private int visited[];
 
-
-    private float CurrX;
-    private float CurrY;
-
-    private float NextX;
-    private float NextY;
-
     private PathMaker p;
-
-
-
-
-
 
     public int[] getVisited() {
         return visited;
     }
-
-
-
 
     public C1floor(int CurrRoom, int NextRoom) {
 
@@ -84,43 +66,27 @@ public class C1floor {
         C1.addEdge(67, 53);
 
 
-
-
-
         C1.DFS(CurrentRoom);
         visited = C1.getVisited();
-
         p = new PathMaker(visited);
 
-        CurrX= p.getX(CurrentRoom);
-        CurrY = p.getY(CurrentRoom);
-        NextX = p.getX(desiredRoom);
-        NextY = p.getY(desiredRoom);
-
-        // figure out how to display path on map
     }
     public Path getPath(){
         return p.getPath();
-
+    }
+    public float getX(int Num){
+        Num -=100;
+        return p.getX(Num);
+    }
+    public float getY(int Num){
+        Num -=100;
+        return p.getY(Num);
     }
 
 
-    public float getCurrX(){
-        return CurrX;
 
-    }
 
-    public float getCurrY() {
-        return CurrY;
-    }
-    public float getNextX(){
-        return NextX;
 
-    }
-
-    public float getNextY() {
-        return NextY;
-    }
 }
 
 

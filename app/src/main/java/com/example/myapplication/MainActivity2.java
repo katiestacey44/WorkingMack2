@@ -41,8 +41,8 @@ public class MainActivity2 extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.c1map);
         //access colors from res>values>colors.xml
-        Start = 0;
-        End = 0;
+        Start = 110;
+        End = 120;
         scaleValue = imageView.getWidth()/(float)200;
 
 
@@ -64,8 +64,7 @@ public class MainActivity2 extends AppCompatActivity {
     public void ShowButton(View v){
 
         C1floor c = new C1floor(Start, End);
-        //The map image's original dimensions are 200x796 px
-        //get the imageView's scaling multiplier
+
         Path path;
 
         Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
@@ -76,17 +75,17 @@ public class MainActivity2 extends AppCompatActivity {
         paint.setAntiAlias(true);
 
         paint.setStyle(Paint.Style.STROKE);//STOKE for drawLine/drawPath
+
         path = c.getPath();
 
         canvas.drawPath(path, paint);
 
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
 
-
         paint.setColor(R.color.blue);
-        canvas.drawCircle(c.getCurrX(),c.getCurrY(),35,paint);
+        canvas.drawCircle(c.getX(Start),c.getY(Start),35,paint);
         paint.setColor(R.color.red);
-        canvas.drawCircle(c.getNextX(),c.getNextY(),30,paint);
+        canvas.drawCircle(c.getX(End),c.getY(End),30,paint);
 
         ImageView map  = findViewById(R.id.MapPath);
 
