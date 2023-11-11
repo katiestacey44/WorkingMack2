@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,6 +30,9 @@ public class MainActivity2 extends AppCompatActivity {
     private int End;
 
     private float scaleValue;
+    private Path path;
+
+
 
 
     @Override
@@ -44,6 +48,8 @@ public class MainActivity2 extends AppCompatActivity {
         Start = 110;
         End = 120;
         scaleValue = imageView.getWidth()/(float)200;
+        path = new Path();
+
 
 
     }
@@ -63,9 +69,10 @@ public class MainActivity2 extends AppCompatActivity {
     @SuppressLint("ResourceAsColor")
     public void ShowButton(View v){
 
-        C1floor c = new C1floor(Start, End);
+        ((TextView)findViewById(R.id.CurrText)).setText("Current: C1 - "+ Start);
+        ((TextView)findViewById(R.id.NextText)).setText("Next: C1 - "+ End);
 
-        Path path;
+        C1floor c = new C1floor(Start, End);
 
         Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);

@@ -5,20 +5,12 @@ import android.graphics.Path;
 public class PathMaker {
 
     private Path P;
-    private int Start;
-    private int End;
-
-    private int X;
-    private int Y;
 
     private int[] path;
 
     private Point[] pointArray;
 
     private MainActivity2 m;
-
-
-
 
 
     public PathMaker(int[] Array){
