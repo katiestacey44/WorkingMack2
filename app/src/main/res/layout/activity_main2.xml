@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="532dp"
-        android:onClick="OnBackButton"
+        android:onClick="GoBackButton"
         android:text="Go Back" />
 
 </RelativeLayout>

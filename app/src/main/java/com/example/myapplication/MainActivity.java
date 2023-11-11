@@ -78,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void NextEnter(View v){
 
-        boolean check1 = false;
-        boolean check2 = false;
-        boolean check3 = false;
 
         TextInputEditText Letter  = findViewById(R.id.NextLetterInput);//gets the input from user
         String NextL = Letter.getText().toString(); // makes it a string because its initially a char
@@ -112,99 +109,7 @@ public class MainActivity extends AppCompatActivity {
         // if i want a pop up Toast.makeText(this, String, Toast.LENGTH_LONG).show();
 
 
-            //PickGraphs();  // use the information gathered to figure out which graph to use
-
 
     }
 
-
-    /**
-     * will use the information changed from to the input of
-     * the user to decide which graph will need to be displayed in activity_main2
-     */
-
-
-
-    public void PathGraph(String v){
-        ((TextView)findViewById(R.id.PathText)).setText("Path: "+ v);
-    }
-
-    /**
-     * @param R the inputed room number from the user
-     * @param str A string to help with the warning pop up if the input is wrong
-     * @return true if the input is an possible room number, three digits
-     */
-
-    public boolean CheckRoom(String R, String str){
-        boolean result = false;
-        int Num = Integer.parseInt(R);
-
-        if(Num > 99 && Num < 1000){
-            result = true;
-        }
-        else {                      //if the input is incorrect it will cause the view to have a pop up warning that lets the user know
-            Toast.makeText(this, "Impossible " + str +" room number input!!!", Toast.LENGTH_LONG ).show();
-        }
-
-        return result;
-
-
-    }
-    /**
-     * @param F the inputed floor number from the user
-     * @param str A string to help with the warning pop up if the input is wrong
-     * @return true if the input is an possible floor number, either 1 or 2
-     */
-
-    public boolean CheckFloor(String F, String str){
-        boolean result= false;
-        int floor = Integer.parseInt(F);
-
-        if (floor >= 2 && floor <= 1){
-            result = true;
-        }
-        else{                   // if the input is incorrect it will cause the view to have a pop up warning that lets the user know
-            Toast.makeText(this, "Impossible " + str +" floor number input!!!", Toast.LENGTH_LONG ).show();
-        }
-
-        return result;
-
-    }
-
-    /**
-     * @param L the inputed letter from the user
-     * @param Str A string to help with the warning pop up if the input is wrong
-     * @return true if the input is an possible letter for a building, A, a, B, b or C, c
-     */
-
-    public boolean CheckLetter(String L, String Str){
-
-        boolean result= false;
-        //V: Does java have string to uppercase function?
-        switch (L){  // switch case for the possible building letter including for possible lower case inputs
-            case "A":
-                result = true;
-                break;
-            case "a":
-                result = true;
-                break;
-            case "B":
-                result = true;
-                break;
-            case "b":
-                result = true;
-                break;
-            case "C":
-                result = true;
-                break;
-            case "c":
-                result = true;
-                break;
-            default: // if the input is incorrect it will cause the view to have a pop up warning that lets the user know
-
-                Toast.makeText(this, "Impossible " + Str +" room letter input!!!", Toast.LENGTH_LONG ).show();
-        }
-        return result;
-
-    }
 }
