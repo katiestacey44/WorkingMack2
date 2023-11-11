@@ -4,7 +4,7 @@ import android.graphics.Path;
 
 public class PathMaker {
 
-    private Path P = new Path();
+    private Path P;
     private int Start;
     private int End;
 
@@ -23,6 +23,7 @@ public class PathMaker {
 
     public PathMaker(int[] Array){
         float Scale;
+        P = new Path();
 
         path = Array;
         pointArray = new Point[70];
