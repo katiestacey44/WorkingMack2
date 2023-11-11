@@ -7,10 +7,12 @@ public class C1floor {
     private int visited[];
 
     private PathMaker p;
+    private Path path;
 
     public int[] getVisited() {
         return visited;
     }
+
 
     public C1floor(int CurrRoom, int NextRoom) {
 
@@ -69,10 +71,12 @@ public class C1floor {
         C1.DFS(CurrentRoom);
         visited = C1.getVisited();
         p = new PathMaker(visited);
+        path = p.getPath();
+
 
     }
     public Path getPath(){
-        return p.getPath();
+        return path;
     }
     public float getX(int Num){
         Num -=100;

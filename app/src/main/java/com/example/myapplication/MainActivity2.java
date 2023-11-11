@@ -24,11 +24,9 @@ public class MainActivity2 extends AppCompatActivity {
     private Context context;
    private  Resources resources;
     private RelativeLayout relativeLayout;
-    private Button button;
     private ImageView imageView;
     private int Start;
     private int End;
-
     private float scaleValue;
     private Path path;
 
@@ -49,8 +47,6 @@ public class MainActivity2 extends AppCompatActivity {
         End = 120;
         scaleValue = imageView.getWidth()/(float)200;
         path = new Path();
-
-
 
     }
 

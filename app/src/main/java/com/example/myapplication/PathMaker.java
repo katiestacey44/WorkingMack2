@@ -6,8 +6,6 @@ public class PathMaker {
 
     private Path P;
 
-    private int[] path;
-
     private Point[] pointArray;
 
     private MainActivity2 m;
@@ -16,8 +14,6 @@ public class PathMaker {
     public PathMaker(int[] Array){
         float Scale;
         P = new Path();
-
-        path = Array;
         pointArray = new Point[70];
         m = new MainActivity2();
         Scale = m.getScaleVal();
@@ -67,14 +63,14 @@ public class PathMaker {
         pointArray[66] = new Point(165, 80);
         pointArray[67] = new Point(30, 100);
 
-        float x = Scale*pointArray[path[0]].getX();
-        float y = Scale*pointArray[path[0]].getY();
+        float x = Scale*pointArray[Array[0]].getX();
+        float y = Scale*pointArray[Array[0]].getY();
 
         P.moveTo(x, y);
 
-        for (int i = 1; i < path.length; i++){
-            x = Scale*pointArray[path[i]].getX();
-            y = Scale*pointArray[path[i]].getY();
+        for (int i = 1; i < Array.length; i++){
+            x = Scale*pointArray[Array[i]].getX();
+            y = Scale*pointArray[Array[i]].getY();
             P.lineTo(x, y);
         }
 
