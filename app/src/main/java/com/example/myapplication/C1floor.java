@@ -32,9 +32,9 @@ public class C1floor {
         C1.addEdge(60, 61);
         C1.addEdge(61, 62);
         C1.addEdge(62, 20);
-        C1.addEdge(62, 61);
-        C1.addEdge(61, 49);
-        C1.addEdge(61, 48);
+        C1.addEdge(62, 65);
+        C1.addEdge(65, 49);
+        C1.addEdge(65, 48);
         C1.addEdge(20, 30);
         C1.addEdge(20, 27);
         C1.addEdge(20, 25);
@@ -48,7 +48,7 @@ public class C1floor {
         C1.addEdge(64, 23);
 
         C1.addEdge(64, 32);
-        C1.addEdge(61, 66);
+        C1.addEdge(65, 66);
         C1.addEdge(66, 40);
         C1.addEdge(40, 41);
         C1.addEdge(40, 42);
