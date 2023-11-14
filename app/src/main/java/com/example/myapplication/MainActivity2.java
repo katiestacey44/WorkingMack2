@@ -33,6 +33,7 @@ public class MainActivity2 extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,10 @@ public class MainActivity2 extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.c1map);
         //access colors from res>values>colors.xml
-        Start = 110;
-        End = 120;
+
+        Start = getIntent().getIntExtra("current", 120);
+        End = getIntent().getIntExtra("next", 110);
+
         scaleValue = imageView.getWidth()/(float)200;
         path = new Path();
 
@@ -59,9 +62,8 @@ public class MainActivity2 extends AppCompatActivity {
         End = E;
     }
 
-    public float getScaleVal(){
-        return scaleValue;
-    }
+
+
     @SuppressLint("ResourceAsColor")
     public void ShowButton(View v){
 

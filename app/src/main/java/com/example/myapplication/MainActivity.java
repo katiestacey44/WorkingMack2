@@ -23,15 +23,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        A2 = new MainActivity2();
     }
 
     public void openMainActivity2(View v){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        intent.putExtra("current",Integer.parseInt(CurrentRoom) );
+        intent.putExtra("next",Integer.parseInt(NextRoom) );
         startActivity(intent);
+
     }
 
     public void CurEnter(View v){
+
 
         TextInputEditText Num  = findViewById(R.id.CurrentRoomNum);//gets the input from user
 
@@ -41,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
         ((TextView)findViewById(R.id.textCurr)).setText("Current room: C1 - "+ CurrentN);
 
-        A2.setStart(Integer.parseInt(CurrentRoom));
     }
 
     public void NextEnter(View v){
@@ -54,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
         ((TextView)findViewById(R.id.TextNext)).setText("Next room: C1 - "+ NextN);
 
-        A2.setEnd(Integer.parseInt(NextRoom));
 
     }
 
