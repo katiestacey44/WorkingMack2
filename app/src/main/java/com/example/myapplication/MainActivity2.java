@@ -53,16 +53,6 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
-    public void setStart(int S){
-        Start = S;
-
-    }
-
-    public void setEnd(int E){
-        End = E;
-    }
-
-
 
     @SuppressLint("ResourceAsColor")
     public void ShowButton(View v){

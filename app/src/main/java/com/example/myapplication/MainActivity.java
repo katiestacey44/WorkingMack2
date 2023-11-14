@@ -17,7 +17,6 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
     private String CurrentRoom;
     private String NextRoom;
-   private MainActivity2 A2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +25,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openMainActivity2(View v){
-        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-        intent.putExtra("current",Integer.parseInt(CurrentRoom) );
-        intent.putExtra("next",Integer.parseInt(NextRoom) );
-        startActivity(intent);
+
+
+            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            intent.putExtra("current", Integer.parseInt(CurrentRoom));
+            intent.putExtra("next", Integer.parseInt(NextRoom));
+            startActivity(intent);
+
+            //Toast.makeText(this,"Current Room or Next Room does not Exist", Toast.LENGTH_LONG);
+
 
     }
+
 
     public void CurEnter(View v){
 

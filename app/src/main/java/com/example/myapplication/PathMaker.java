@@ -15,12 +15,51 @@ public class PathMaker {
        Scale  = 2.75F;
         P = new Path();
         pointArray = new Point[70];
-
-
-
-
-
         // Initialize the array with Point objects
+        Addinfo();
+
+        float x = Scale*pointArray[Array[0]].getX();
+        float y = Scale*pointArray[Array[0]].getY();
+
+        P.moveTo(x, y);
+
+        for (int i = 1; i < Array.length; i++){
+            if (Array[i] != 0) {
+                x = Scale * pointArray[Array[i]].getX();
+                y = Scale * pointArray[Array[i]].getY();
+                P.lineTo(x, y);
+            }
+        }
+
+
+    }
+
+    public boolean check(int num){
+        boolean result = false;
+      if (pointArray[num] != null && num < 60){
+          result = true;
+      }
+
+        return result;
+
+    }
+
+    public float getX(int num){
+
+    return pointArray[num].getX() * Scale;
+
+    }
+
+    public float getY(int num){
+
+        return pointArray[num].getY() * Scale;
+    }
+
+    public Path getPath(){
+        return P;
+
+    }
+    private void Addinfo(){
         pointArray[10] = new Point(100, 640); // x and y of the rooms
         pointArray[12] = new Point(100, 640);
         pointArray[14] = new Point(100, 610);
@@ -34,7 +73,7 @@ public class PathMaker {
         pointArray[30] = new Point(80, 430);
         pointArray[24] = new Point(20, 450);
         pointArray[23] = new Point(20, 470);
-        pointArray[22] = new Point(20, 500);
+        pointArray[22] = new Point(20, 490);
         pointArray[21] = new Point(20, 500);
         pointArray[32] = new Point(20, 370);
         pointArray[33] = new Point(20, 350);
@@ -64,36 +103,6 @@ public class PathMaker {
         pointArray[65] = new Point(165, 300);
         pointArray[66] = new Point(165, 90);
         pointArray[67] = new Point(20, 100);
-
-        float x = Scale*pointArray[Array[0]].getX();
-        float y = Scale*pointArray[Array[0]].getY();
-
-        P.moveTo(x, y);
-
-        for (int i = 1; i < Array.length; i++){
-            if (Array[i] != 0) {
-                x = Scale * pointArray[Array[i]].getX();
-                y = Scale * pointArray[Array[i]].getY();
-                P.lineTo(x, y);
-            }
-        }
-
-    }
-
-    public float getX(int num){
-
-    return pointArray[num].getX() * Scale;
-
-    }
-
-    public float getY(int num){
-
-        return pointArray[num].getY() * Scale;
-    }
-
-    public Path getPath(){
-        return P;
-
     }
 
 

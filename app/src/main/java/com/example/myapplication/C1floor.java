@@ -8,10 +8,8 @@ public class C1floor {
 
     private PathMaker p;
     private Path path;
+    private Graph C1;
 
-    public int[] getVisited() {
-        return visited;
-    }
 
 
     public C1floor(int CurrRoom, int NextRoom) {
@@ -19,9 +17,28 @@ public class C1floor {
         int CurrentRoom = CurrRoom - 100;
         int desiredRoom = NextRoom - 100;
 
+        addInfo(desiredRoom);
 
-        Graph C1 = new Graph(70, desiredRoom);
+        C1.DFS(CurrentRoom);
+        visited = C1.getVisited();
+        p = new PathMaker(visited);
+        path = p.getPath();
+    }
+    public Path getPath(){
+        return path;
+    }
+    public float getX(int Num){
+        Num -=100;
+        return p.getX(Num);
+    }
 
+    public float getY(int Num){
+        Num -=100;
+        return p.getY(Num);
+    }
+
+    private void addInfo(int num){
+        C1 = new Graph(70, num);
 
         C1.addEdge(60, 14); // the edges between all the room in the C1 floor
         C1.addEdge(60, 12);
@@ -67,24 +84,6 @@ public class C1floor {
         C1.addEdge(67, 54);
         C1.addEdge(67, 53);
 
-
-        C1.DFS(CurrentRoom);
-        visited = C1.getVisited();
-        p = new PathMaker(visited);
-        path = p.getPath();
-
-
-    }
-    public Path getPath(){
-        return path;
-    }
-    public float getX(int Num){
-        Num -=100;
-        return p.getX(Num);
-    }
-    public float getY(int Num){
-        Num -=100;
-        return p.getY(Num);
     }
 
 
