@@ -8,25 +8,26 @@ public class PathMaker {
 
     private Point[] pointArray;
 
-    private float Scale;
+    private float scaleVal;
 
 
-    public PathMaker(int[] Array){
-       Scale  = 2.75F;
+
+    public PathMaker(float scaler, int[] Array){
+        scaleVal  = scaler;
         P = new Path();
         pointArray = new Point[70];
         // Initialize the array with Point objects
-        Addinfo();
+        addPoints();
 
-        float x = Scale*pointArray[Array[0]].getX();
-        float y = Scale*pointArray[Array[0]].getY();
+        float x = scaleVal*pointArray[Array[0]].getX();
+        float y = scaleVal*pointArray[Array[0]].getY();
 
         P.moveTo(x, y);
 
         for (int i = 1; i < Array.length; i++){
             if (Array[i] != 0) {
-                x = Scale * pointArray[Array[i]].getX();
-                y = Scale * pointArray[Array[i]].getY();
+                x = scaleVal * pointArray[Array[i]].getX();
+                y = scaleVal * pointArray[Array[i]].getY();
                 P.lineTo(x, y);
             }
         }
@@ -36,30 +37,31 @@ public class PathMaker {
 
     public boolean check(int num){
         boolean result = false;
-      if (pointArray[num] != null && num < 60){
+        if (pointArray[num] != null && num < 60)
+        {
           result = true;
-      }
-
+        }
         return result;
 
     }
 
     public float getX(int num){
 
-    return pointArray[num].getX() * Scale;
+    return pointArray[num].getX() * scaleVal;
 
     }
 
     public float getY(int num){
 
-        return pointArray[num].getY() * Scale;
+        return pointArray[num].getY() * scaleVal;
     }
 
     public Path getPath(){
         return P;
 
     }
-    private void Addinfo(){
+
+    private void addPoints(){
         pointArray[10] = new Point(100, 640); // x and y of the rooms
         pointArray[12] = new Point(100, 640);
         pointArray[14] = new Point(100, 610);
@@ -68,7 +70,7 @@ public class PathMaker {
         pointArray[6] = new Point(100, 610);
         pointArray[26] = new Point(120, 500);
         pointArray[25] = new Point(90, 500);
-        pointArray[20] = new Point(120, 470);
+        pointArray[20] = new Point(140, 490);
         pointArray[27] = new Point(90, 450);
         pointArray[30] = new Point(80, 430);
         pointArray[24] = new Point(20, 450);
@@ -85,7 +87,7 @@ public class PathMaker {
         pointArray[55] = new Point(20, 80);
         pointArray[56] = new Point(20, 50);
         pointArray[57] = new Point(20, 50);
-        pointArray[40] = new Point(90, 90);
+        pointArray[40] = new Point(140, 100);
         pointArray[44] = new Point(90, 150);
         pointArray[43] = new Point(90, 180);
         pointArray[42] = new Point(90, 210);

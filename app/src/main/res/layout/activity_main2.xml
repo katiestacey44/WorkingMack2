@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/c1map" />
 
     <ImageView
-        android:id="@+id/MapPath"
+        android:id="@+id/pathDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -28,7 +28,7 @@
         android:layout_width="124dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="-19dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:layout_toStartOf="@+id/imageView"
         android:background="#D24B7070"
@@ -78,16 +78,16 @@
 
             android:textSize="16sp"
             android:textStyle="bold" />
+        <Button
+            android:id="@+id/GoBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="GoBackButton"
+            android:text="Return"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/GoBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="532dp"
-        android:onClick="GoBackButton"
-        android:text="Go Back" />
 
 </RelativeLayout>

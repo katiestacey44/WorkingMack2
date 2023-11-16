@@ -16,21 +16,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
-   private  Resources resources;
+    private Resources resources;
     private RelativeLayout relativeLayout;
     private ImageView imageView;
-    private int Start;
-    private int End;
-    private float scaleValue;
+    private int start;
+    private int end;
+    private float scaleValValue;
     private Path path;
-
-
 
 
 
@@ -43,46 +42,55 @@ public class MainActivity2 extends AppCompatActivity {
         relativeLayout = findViewById(R.id.relativeLayout);
         imageView = findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.c1map);
-        //access colors from res>values>colors.xml
+        //Obtain current and next room ids from other activity
+        start = getIntent().getIntExtra("current", 120);
+        end = getIntent().getIntExtra("next", 110);
+        //display info
+        ((TextView)findViewById(R.id.CurrText)).setText("Current:"+ "\n" +"C1"+ start);
+        ((TextView)findViewById(R.id.NextText)).setText("Next:"+ "\n"+"C1"+ end);
 
-        Start = getIntent().getIntExtra("current", 120);
-        End = getIntent().getIntExtra("next", 110);
 
-        scaleValue = imageView.getWidth()/(float)200;
         path = new Path();
 
     }
 
 
-    @SuppressLint("ResourceAsColor")
     public void ShowButton(View v){
+        //access colors from res>values>colors.xml
+        int cyan = ContextCompat.getColor(context, R.color.cyan);
+        int red = ContextCompat.getColor(context, R.color.red);
+        int blue = ContextCompat.getColor(context, R.color.blue);
 
-        ((TextView)findViewById(R.id.CurrText)).setText("Current: C1 - "+ Start);
-        ((TextView)findViewById(R.id.NextText)).setText("Next: C1 - "+ End);
+        //obtain scale value for the map on this device to pass to our path function
+        scaleValValue = imageView.getWidth()/(float)200;
+        C1floor c = new C1floor(scaleValValue,start, end);
 
-        C1floor c = new C1floor(Start, End);
 
+        //Initialize display
         Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
-        paint.setColor(R.color.cyan);
+
+        paint.setColor(cyan);
         paint.setStrokeWidth(22); //line width
         paint.setAntiAlias(true);
 
         paint.setStyle(Paint.Style.STROKE);//STOKE for drawLine/drawPath
 
+        //Get path
         path = c.getPath();
 
+        //Display path and room markers
         canvas.drawPath(path, paint);
 
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
+        paint.setColor(blue);
 
-        paint.setColor(R.color.blue);
-        canvas.drawCircle(c.getX(Start),c.getY(Start),35,paint);
-        paint.setColor(R.color.red);
-        canvas.drawCircle(c.getX(End),c.getY(End),30,paint);
+        canvas.drawCircle(c.getX(start),c.getY(start),35,paint);
+        paint.setColor(red);
+        canvas.drawCircle(c.getX(end),c.getY(end),30,paint);
 
-        ImageView map  = findViewById(R.id.MapPath);
+        ImageView map  = findViewById(R.id.pathDisplay);
 
         map.setImageBitmap(bitmap);
 

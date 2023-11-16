@@ -1,19 +1,21 @@
 package com.example.myapplication;
 
 public class Point {
-    private int x;
-   private int y;
+    private int x; //x coordinate
+    private int y; //y coordinate
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX() {
+    public int getX()
+    {
         return x;
     }
 
-    public int getY() {
+    public int getY()
+    {
         return y;
     }
 }

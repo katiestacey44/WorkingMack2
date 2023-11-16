@@ -4,7 +4,7 @@ import android.graphics.Path;
 
 public class C1floor {
 
-    private int visited[];
+    private int visitedArr[];
 
     private PathMaker p;
     private Path path;
@@ -12,29 +12,32 @@ public class C1floor {
 
 
 
-    public C1floor(int CurrRoom, int NextRoom) {
+    public C1floor(float scaleValr,int currRoom, int nextRoom) {
 
-        int CurrentRoom = CurrRoom - 100;
-        int desiredRoom = NextRoom - 100;
+        int currentRoom = currRoom - 100;
+        int desiredRoom = nextRoom - 100;
 
         addInfo(desiredRoom);
 
-        C1.DFS(CurrentRoom);
-        visited = C1.getVisited();
-        p = new PathMaker(visited);
+        C1.DFS(currentRoom);
+        visitedArr = C1.getVisited();
+        p = new PathMaker(scaleValr,visitedArr);
         path = p.getPath();
     }
-    public Path getPath(){
+    public Path getPath()
+    {
+
         return path;
     }
-    public float getX(int Num){
-        Num -=100;
-        return p.getX(Num);
+
+    public float getX(int num){
+        num -=100;
+        return p.getX(num);
     }
 
-    public float getY(int Num){
-        Num -=100;
-        return p.getY(Num);
+    public float getY(int num){
+        num -=100;
+        return p.getY(num);
     }
 
     private void addInfo(int num){
