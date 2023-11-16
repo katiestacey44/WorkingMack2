@@ -87,7 +87,7 @@ public class PathMaker {
         pointArray[55] = new Point(20, 80);
         pointArray[56] = new Point(20, 50);
         pointArray[57] = new Point(20, 50);
-        pointArray[40] = new Point(140, 100);
+        pointArray[40] = new Point(120, 100);
         pointArray[44] = new Point(90, 150);
         pointArray[43] = new Point(90, 180);
         pointArray[42] = new Point(90, 210);
