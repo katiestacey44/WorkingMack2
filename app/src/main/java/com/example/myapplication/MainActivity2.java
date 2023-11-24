@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -10,7 +9,6 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,8 +16,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
-
+/**
+ * MainActivity2 represents the second activity of the application.
+ * It displays a floor map, a path between two rooms, and markers for the current and next rooms.
+ */
 
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
@@ -32,7 +32,11 @@ public class MainActivity2 extends AppCompatActivity {
     private Path path;
 
 
-
+    /**
+     * Called when the activity is first created.
+     * Initializes the layout and retrieves data from the previous activity.
+     * @param savedInstanceState The saved state of the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +58,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+    /**
+     * Displays the path and room markers on the map when the "Show" button is clicked.
+     * @param v The clicked button view.
+     */
 
     public void ShowButton(View v){
         //access colors from res>values>colors.xml
@@ -96,6 +104,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     }
 
+    /**
+     * Navigates back to the main activity when the "Go Back" button is clicked.
+     * @param v The clicked button view.
+     */
     public void GoBackButton(View v){
         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
         startActivity(intent);
