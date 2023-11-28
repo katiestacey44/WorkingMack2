@@ -41,21 +41,6 @@ public class Graph {
 
     }
 
-    /**
-     * @return
-     * returns the desired room inputed by the user
-     */
-    public int getDesiredRoom() {
-        return DesiredRoom;
-    }
-
-    /**
-     * @param room, sets room the number for the desired room
-     */
-    public void setDesiredRoom(int room){
-        DesiredRoom = room;
-
-    }
 
     public int[] getVisited() {
         return visited;
