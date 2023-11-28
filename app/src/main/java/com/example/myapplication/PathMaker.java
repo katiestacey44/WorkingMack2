@@ -2,28 +2,43 @@ package com.example.myapplication;
 
 import android.graphics.Path;
 
+/**
+ * PathMaker class is responsible for generating a Path object based on a given array of room indices.
+ * It also provides methods to check the existence of a room, retrieve scaled coordinates, and obtain the generated path.
+ */
+
 public class PathMaker {
 
-    private Path P;
+    private Path P;  // Path object to store the generated path
 
-    private Point[] pointArray;
+    private Point[] pointArray; // Array of Point objects representing room coordinates
 
-    private float scaleVal;
+    private float scaleVal;  // Scaling factor for the path
 
 
+
+    /**
+     * Constructor for the PathMaker class.
+     *
+     * @param scaler Scaling factor for the path
+     * @param Array  Array of room indices
+     */
 
     public PathMaker(float scaler, int[] Array){
         scaleVal  = scaler;
         P = new Path();
         pointArray = new Point[70];
-        // Initialize the array with Point objects
+
+        // Initialize the array with Point objects representing room coordinates
         addPoints();
 
+        // Move to the starting point of the path
         float x = scaleVal*pointArray[Array[0]].getX();
         float y = scaleVal*pointArray[Array[0]].getY();
 
         P.moveTo(x, y);
 
+        // Generate the path by connecting the rooms
         for (int i = 1; i < Array.length; i++){
             if (Array[i] != 0) {
                 x = scaleVal * pointArray[Array[i]].getX();
@@ -35,32 +50,41 @@ public class PathMaker {
 
     }
 
-    public boolean check(int num){
-        boolean result = false;
-        if (pointArray[num] != null && num < 60)
-        {
-          result = true;
-        }
-        return result;
-
-    }
-
+    /**
+     * Get the scaled x-coordinate for a given room index.
+     * @param num Room index
+     * @return Scaled x-coordinate of the room
+     */
     public float getX(int num){
 
     return pointArray[num].getX() * scaleVal;
 
     }
 
+    /**
+     * Get the scaled y-coordinate for a given room index.
+     * @param num Room index
+     * @return Scaled y-coordinate of the room
+     */
+
     public float getY(int num){
 
         return pointArray[num].getY() * scaleVal;
     }
+
+    /**
+     * Get the generated path.
+     * @return Path object representing the generated path
+     */
 
     public Path getPath(){
         return P;
 
     }
 
+    /**
+     * Initialize the array of Point objects with room coordinates.
+     */
     private void addPoints(){
         pointArray[10] = new Point(100, 640); // x and y of the rooms
         pointArray[12] = new Point(100, 640);

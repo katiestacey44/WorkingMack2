@@ -2,45 +2,84 @@ package com.example.myapplication;
 
 import android.graphics.Path;
 
+/**
+ * C1floor class represents the navigation path on the C1 floor of a building.
+ */
+
 public class C1floor {
 
-    private int visitedArr[];
+    private int visitedArr[]; // Array to keep track of visited rooms during DFS traversal
 
+    // PathMaker and Path objects for generating and storing the navigation path
     private PathMaker p;
     private Path path;
-    private Graph C1;
 
 
+    private Graph C1; // Graph representing the floor layout
+
+    /**
+     * Constructor for C1floor class.
+     *
+     * @param scaleValr   Scaling factor for the path
+     * @param currRoom    Current room number
+     * @param nextRoom    Destination room number
+     */
 
     public C1floor(float scaleValr,int currRoom, int nextRoom) {
-
+        // Adjust room numbers to start from 0
         int currentRoom = currRoom - 100;
         int desiredRoom = nextRoom - 100;
 
+        // Initialize graph information and perform DFS traversal
         addInfo(desiredRoom);
 
         C1.DFS(currentRoom);
         visitedArr = C1.getVisited();
+
+        // Create PathMaker and obtain the navigation path
         p = new PathMaker(scaleValr,visitedArr);
         path = p.getPath();
     }
+
+    /**
+     * Get the generated navigation path.
+     * @return Path object representing the navigation path
+     */
     public Path getPath()
     {
 
         return path;
     }
 
+    /**
+     * Get the x-coordinate for a given room.
+     * @param num Room number
+     * @return X-coordinate of the room
+     */
+
     public float getX(int num){
         num -=100;
         return p.getX(num);
     }
+
+    /**
+     * Get the y-coordinate for a given room.
+     * @param num Room number
+     * @return Y-coordinate of the room
+     */
 
     public float getY(int num){
         num -=100;
         return p.getY(num);
     }
 
+    /**
+     * Add information about the floor layout to the graph.
+     * @param num Desired room number
+     */
+
     private void addInfo(int num){
+        // Create a graph representing the C1 floor layout
         C1 = new Graph(70, num);
 
         C1.addEdge(60, 14); // the edges between all the room in the C1 floor
