@@ -44,12 +44,19 @@ public class MainActivity extends AppCompatActivity {
     public void openMainActivity2(View v){
 
 
+        C1floor c = new C1floor();
+        if (!c.check(Integer.parseInt(currentRoom))){
+            Toast.makeText(this,"Current Room does not Exist", Toast.LENGTH_LONG).show();
+        }
+        else if (!c.check(Integer.parseInt(nextRoom))){
+            Toast.makeText(this,"Next Room does not Exist", Toast.LENGTH_LONG).show();
+        }
+        else{
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             intent.putExtra("current", Integer.parseInt(currentRoom));
             intent.putExtra("next", Integer.parseInt(nextRoom));
             startActivity(intent);
-
-            //Toast.makeText(this,"Current Room or Next Room does not Exist", Toast.LENGTH_LONG);
+        }
     }
 
     /**

@@ -17,6 +17,10 @@ public class C1floor {
 
     private Graph C1; // Graph representing the floor layout
 
+
+    public C1floor(){
+
+    }
     /**
      * Constructor for C1floor class.
      *
@@ -126,6 +130,18 @@ public class C1floor {
         C1.addEdge(67, 54);
         C1.addEdge(67, 53);
 
+    }
+    public boolean check(int num){
+        boolean result = false;
+        int[] array = {110,112,104,102,106,114,120,125,126,127,130,124,123,121,122,132,133,140,144,146,145,143,142,141,154,153,152,151,150,148,149,157,156,155};
+
+        for (int i= 0; i < array.length; i++){
+            if (num == array[i]){
+                result = true;
+                break;
+            }
+        }
+        return result;
     }
 
 }
