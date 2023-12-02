@@ -21,7 +21,13 @@ import com.google.android.material.textfield.TextInputEditText;
 public class MainActivity extends AppCompatActivity {
     private String currentRoom;
     private String nextRoom;
+    private TextInputEditText inputCurrentRoom;
+    private TextInputEditText inputNextRoom;
 
+    public MainActivity() {
+    }
+
+    private void checkInput();
     /**
      * Called when the activity is first created.
      *
@@ -34,8 +40,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        inputCurrentRoom = findViewById(R.id.currentInputlayout);
+        inputNextRoom = findViewById(R.id.nextInputLayout);
     }
+    private boolean validateCurrentInput() {
+        String cInput = inputCurrentRoom.getEditText().getText().toString().trim();
 
+    }
     /**
      * Opens MainActivity2 to display the navigation path based on the entered current and next room numbers.
      * @param v The View that was clicked.
@@ -43,15 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openMainActivity2(View v){
 
+        //create
+        //C1floor c = new C1floor();
 
-        C1floor c = new C1floor();
-        if (!c.check(Integer.parseInt(currentRoom))){
-            Toast.makeText(this,"Current Room does not Exist", Toast.LENGTH_LONG).show();
-        }
-        else if (!c.check(Integer.parseInt(nextRoom))){
-            Toast.makeText(this,"Next Room does not Exist", Toast.LENGTH_LONG).show();
-        }
-        else{
+        //if (!c.check(Integer.parseInt(currentRoom))){
+
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
             intent.putExtra("current", Integer.parseInt(currentRoom));
             intent.putExtra("next", Integer.parseInt(nextRoom));
@@ -64,34 +71,62 @@ public class MainActivity extends AppCompatActivity {
      * @param v The View that was clicked.
      */
 
+    private void checkInput(View v) {
+        {
+            if (!validateNextInput() | !validateCurrentInput()) {
+                return;
+            }
 
-    public void CurEnter(View v){
+        }
 
-
-        TextInputEditText num  = findViewById(R.id.CurrentRoomNum);//gets the input from user
-
-        String CurrentN = num.getText().toString(); // makes it a string because its initially a char
-
-        currentRoom = CurrentN;                     // set the input to the right variable
-
-        ((TextView)findViewById(R.id.textCurr)).setText("Current room: C1 - "+ CurrentN);
 
     }
+        /**
+         * Sets the next room number based on the user input.
+         * @param v The View that was clicked.
+         **/
+        private boolean validateCurrentInput() {
 
-    /**
-     * Sets the next room number based on the user input.
-     * @param v The View that was clicked.
-     */
 
-    public void NextEnter(View v){
+        }
+        private boolean validateNextInput() {
+            TextInputEditText nextInput = findViewById(R.id.nextInputEditText);//gets the input from user
 
-        TextInputEditText num  = findViewById(R.id.NextRoomNum);//gets the input from user
+            String roomNext = nextInput.getText().toString().trim();
+            if (roomNext.isEmpty()) {
+                nextInput.setError("Field cannot be empty");
+                return false;
+            }
+            if (roomNext.length() < 3) {
+                nextInput.setError("Input too short");
+                return false;
+            }
+            if (roomNext.length() > 3) {
+                nextInput.setError("Input length exceeded");
+                return false;
+            } else {
+                //call check function to see whether the 3digit input is a room
+                if (c.check(roomNext) == false) {
+                    nextInput.setError("invalid room number");
+                    return false;
+                } else
+                    nextInput.setError(null);
+                nextInput.setErrorEnabled(false);
+                return true;
+            }
+        }
+    };
 
-        String NextN = num.getText().toString(); // makes it a string because its initially a char
 
-        nextRoom = NextN;
+    public void NextInput(View v){
+        TextInputEditText num  = findViewById(R.id.editTextNext);//gets the input from user
 
-        ((TextView)findViewById(R.id.TextNext)).setText("Next room: C1 - "+ NextN);
+
+        String room = num.getText().toString(); // makes it a string because its initially a char
+
+        nextRoom = room;
+
+       // ((TextView)findViewById(R.id.TextNext)).setText("Next room: C1 - "+ NextN);
 
 
     }
