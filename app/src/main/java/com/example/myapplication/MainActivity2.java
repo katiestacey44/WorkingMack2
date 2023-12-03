@@ -30,7 +30,6 @@ public class MainActivity2 extends AppCompatActivity {
     private float scaleValValue;
     private Path path;
 
-
     /**
      * Called when the activity is first created.
      * Initializes the layout and retrieves data from the previous activity.
@@ -60,9 +59,40 @@ public class MainActivity2 extends AppCompatActivity {
      * Displays the path and room markers on the map when the "Show" button is clicked.
      * @param v The clicked button view.
      */
-
+    //Function to view all points to manually adjust their xy coordinates
     public void testPoints(View v) {
-        int[] array = {110, 112, 104, 102, 106, 114, 120, 125, 126, 127, 130, 124, 123, 121, 122, 132, 133, 140, 144, 146, 145, 143, 142, 141, 154, 153, 152, 151, 150, 148, 149, 157, 156, 155};
+        scaleValValue = imageView.getWidth()/(float)200;
+        C1floor c = new C1floor(scaleValValue,start, end);
+
+        //points for rooms in array, non-room in array2
+        int[] array = {110, 112, 114, 120, 121, 122, 123, 124, 125, 126, 127, 130, 132, 133, 140, 144, 146, 143, 142, 141, 154, 153, 152, 151, 150,  157, 156, 155};
+        int[] array2 = {1,2,3,4,5,6,7,8,9,11,13,15,16,17,18,19,34,35,36,37,38,28,29,45,47,48,49,58,34};
+        //display colors
+        int testColor = ContextCompat.getColor(context, R.color.green);
+        int testColor2 = ContextCompat.getColor(context, R.color.butt);
+
+        //Initialize display
+        Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        Paint paint = new Paint();
+        paint.setStyle(Paint.Style.FILL); //FILL style to make circles
+
+
+        //Displays all points
+        paint.setColor(testColor); //rooms displayed as green
+        for (int i=0;i<array.length;i++)
+        {
+            canvas.drawCircle(c.getX(array[i]), c.getY(array[i]), 10, paint);
+        };
+        paint.setColor(testColor2); //non-rooms shown as a different color
+        for (int i=0;i<array2.length;i++)
+        {
+            canvas.drawCircle(c.getX(array2[i]+100), c.getY(array2[i]+100), 10, paint);
+        };
+
+        ImageView map  = findViewById(R.id.pathDisplay);
+        map.setImageBitmap(bitmap);
+
     }
     public void ShowButton(View v){
         //access colors from res>values>colors.xml
@@ -95,9 +125,9 @@ public class MainActivity2 extends AppCompatActivity {
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
         paint.setColor(blue);
 
-        canvas.drawCircle(c.getX(start),c.getY(start),35,paint);
+        canvas.drawCircle(c.getX(start),c.getY(start),20,paint);
         paint.setColor(red);
-        canvas.drawCircle(c.getX(end),c.getY(end),30,paint);
+        canvas.drawCircle(c.getX(end),c.getY(end),20,paint);
 
         ImageView map  = findViewById(R.id.pathDisplay);
 
