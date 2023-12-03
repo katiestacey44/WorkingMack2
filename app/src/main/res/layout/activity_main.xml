@@ -4,23 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical"
+    android:background="@color/palegrass2"
+
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textInstructions"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:background="#34454C"
+
+        android:elegantTextHeight="true"
+        android:paddingStart="32dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="18dp"
         android:text="Please input the room numbers for your Current Room and Next Room"
-        android:textSize="8pt" />
+        android:textColor="@color/palegrass"
+        android:textSize="8pt"
+        android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/currentInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -28,52 +35,65 @@
         android:layout_marginEnd="32dp"
         android:hint="Current Room"
 
-        app:errorEnabled="true"
-        app:prefixText="C1-"
-        app:prefixTextColor="@color/blue"
+        android:textColorHint="@color/notblue"
+        app:boxStrokeColor="@color/bleal"
+        app:boxBackgroundColor="@color/s1"
+
         app:counterEnabled="true"
         app:counterMaxLength="3"
+        app:errorEnabled="true"
         app:helperTextTextColor="@color/red"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
+        app:prefixText="C1-"
+        app:prefixTextColor="@color/notblue"
+        app:counterTextColor="@color/notblue"
         >
+
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="3"
             android:inputType="number"
-            />
+            android:maxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/nextInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:hint="Next Room"
-        app:prefixText="C1-"
-        app:prefixTextColor="@color/blue"
+        app:boxBackgroundColor="@color/s2"
+        android:textColorHint="@color/notblue"
+        app:hintTextColor="@color/dark"
+        app:boxStrokeColor="@color/bleal"
+        app:boxStrokeErrorColor="@color/red"
+        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:counterEnabled="true"
         app:counterMaxLength="3"
+        app:errorEnabled="true"
         app:helperTextTextColor="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:errorEnabled="true"
+        app:prefixText="C1-"
+        app:prefixTextColor="@color/notblue"
+        app:counterTextColor="@color/notblue"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:counterEnabled="true"
-            app:counterMaxLength="3"
-            android:maxLength="3"
             android:inputType="number"
-             />
+            android:maxLength="3"
+            app:counterEnabled="true"
+            app:counterMaxLength="3" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -82,10 +102,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginStart="32dp"
-        android:text="Go to map"
-        android:backgroundTint="@color/butt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="Confirm"
+        android:backgroundTint="@color/teal2"
+        />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleY="2.0"
+        app:srcCompat="@drawable/gradient2" />
 
 </LinearLayout>
 

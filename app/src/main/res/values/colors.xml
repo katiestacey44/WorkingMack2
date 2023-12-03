@@ -6,7 +6,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="violet">#795BFD</color>
-    <color name="indigo">#3315DD</color>
+    <color name="indigo">#2831D8</color>
     <color name="blue">#005EFF</color>
     <color name="green">#29E357</color>
     <color name="cyan">#56CBDB</color>
@@ -14,5 +14,24 @@
     <color name="orange">#FF7F00</color>
     <color name="red">#FA3714</color>
     <color name="butt">#42817B</color>
+    <color name="banner">#355163</color>
+
+    <color name="dark">#1F2629</color>
+    <color name="palegrass">#6EB5B3</color>
+    <color name="dark2">#193E5B</color>
+
+    <color name="palegrass2">#B1C3C8</color>
+    <color name="notblue">#6F85FE</color>
+    <color name="teal">#3ABECC</color>
+    <color name="teal2">#5BA1B3</color>
+
+    <color name="bleal">#00E4E4</color>
+    <color name="s1">#EDF7FE</color>
+    <color name="s2">#E4F4FB</color>
+    <color name="s3">#93B1C2</color>
+    <color name="s4">#3A4851</color>
+
+
+
 </resources>
 
