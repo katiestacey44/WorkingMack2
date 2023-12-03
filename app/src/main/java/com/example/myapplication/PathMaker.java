@@ -88,63 +88,70 @@ public class PathMaker {
     private void addPoints(){
 
 
-        pointArray[14] = new Point(80, 670);
-        pointArray[12] = new Point( 92, 715);
-        pointArray[10] = new Point( 105, 715);
-        pointArray[20] = new Point( 140, 490);
-        pointArray[26] = new Point( 112, 545);
-        pointArray[25] = new Point( 95, 545);
-        pointArray[27] = new Point( 85, 455);
-        pointArray[30] = new Point( 75, 435);
-        pointArray[32] = new Point( 30, 390);
-        pointArray[33] = new Point( 10, 362);
-        pointArray[24] = new Point( 25, 470);
-        pointArray[23] = new Point( 25, 503);
-        pointArray[22] = new Point( 35, 545);
+        pointArray[14] = new Point(80, 672);
+        pointArray[12] = new Point( 92, 730);
+        pointArray[10] = new Point( 106, 730);
+        pointArray[20] = new Point( 132, 490);
         pointArray[21] = new Point( 14, 545);
-        pointArray[40] = new Point( 140, 100);
-        pointArray[46] = new Point( 104, 36);
-        pointArray[45] = new Point( 25, 108);
-        pointArray[44] = new Point( 95, 159);
-        pointArray[43] = new Point( 95, 178);
-        pointArray[42] = new Point( 95, 210);
-        pointArray[41] = new Point( 95, 255);
-        pointArray[55] = new Point( 25, 90);
-        pointArray[56] = new Point( 35, 50);
+        pointArray[22] = new Point( 40, 545);
+        pointArray[23] = new Point( 25, 503);
+        pointArray[24] = new Point( 25, 470);
+        pointArray[25] = new Point( 96, 548);
+        pointArray[26] = new Point( 112, 548);
+        pointArray[27] = new Point( 90, 456);
+        pointArray[30] = new Point( 77, 430);
+        pointArray[32] = new Point( 34, 392);
+        pointArray[33] = new Point( 10, 354);
+
+        pointArray[40] = new Point( 132, 101);
+        pointArray[46] = new Point( 102, 36);
+        pointArray[44] = new Point( 99, 159);
+        pointArray[43] = new Point( 99, 188);
+        pointArray[42] = new Point( 99, 222);
+        pointArray[41] = new Point( 99, 257);
+
+
+        pointArray[55] = new Point( 27, 85);
+        pointArray[56] = new Point( 39, 52);
         pointArray[57] = new Point( 14, 50);
-        pointArray[54] = new Point( 25, 117);
-        pointArray[53] = new Point( 25, 147);
-        pointArray[52] = new Point( 25, 178);
-        pointArray[51] = new Point( 25, 210);
-        pointArray[50] = new Point( 25, 255);
-        pointArray[1] = new Point( 92, 670);
+
+        pointArray[54] = new Point( 27, 117);
+        pointArray[53] = new Point( 27, 152);
+        pointArray[52] = new Point( 27, 188);
+        pointArray[51] = new Point( 27, 221);
+        pointArray[50] = new Point( 27, 255);
+
+
+        pointArray[1] = new Point( 92, 672);
         pointArray[2] = new Point( 92, 625);
         pointArray[3] = new Point( 105, 625);
         pointArray[4] = new Point( 165, 625);
         pointArray[5] = new Point( 165, 490);
-        pointArray[6] = new Point( 165, 100);
-        pointArray[11] = new Point( 112, 490);
+        pointArray[6] = new Point( 165, 101); //to 140
         pointArray[7] = new Point( 95, 490);
-        pointArray[13] = new Point( 75, 455);
         pointArray[8] = new Point( 14, 455);
+        pointArray[9] = new Point( 104, 101);
+        pointArray[11] = new Point( 112, 490);
+        pointArray[13] = new Point( 77, 455);
         pointArray[15] = new Point( 14, 390);
         pointArray[16] = new Point( 14, 470);
         pointArray[17] = new Point( 14, 503);
         pointArray[18] = new Point( 14, 520);
-        pointArray[9] = new Point( 104, 100);
-        pointArray[19] = new Point( 88, 100);
-        pointArray[35] = new Point( 88, 159);
-        pointArray[36] = new Point( 88, 178);
-        pointArray[37] = new Point( 88, 210);
-        pointArray[38] = new Point( 88, 255);
-        pointArray[39] = new Point( 14, 100);
-        pointArray[28] = new Point( 14, 90);
-        pointArray[29] = new Point( 14, 70);
+
+        pointArray[19] = new Point( 88, 101); //<v>
+        pointArray[35] = new Point( 88, 159); //144
+        pointArray[36] = new Point( 88, 186); //143
+        pointArray[37] = new Point( 88, 222); //142
+        pointArray[38] = new Point( 88, 257); //141
+        pointArray[39] = new Point( 14, 102);//what is this Unused???
+        pointArray[28] = new Point( 14, 85);
+        pointArray[29] = new Point( 14, 77);
+        pointArray[45] = new Point( 14, 102); //|- in 50
         pointArray[47] = new Point( 14, 117);
-        pointArray[48] = new Point( 14, 147);
-        pointArray[49] = new Point( 14, 178);
-        pointArray[58] = new Point( 14, 210);
-        pointArray[34] = new Point( 14, 255);
+        pointArray[48] = new Point( 14, 152);
+        pointArray[49] = new Point( 14, 188);
+        pointArray[58] = new Point( 14, 221);
+        pointArray[34] = new Point( 14, 255); //153?
 
     }
 
