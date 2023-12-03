@@ -24,7 +24,6 @@ import androidx.core.content.ContextCompat;
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
     private Resources resources;
-    private RelativeLayout relativeLayout;
     private ImageView imageView;
     private int start;
     private int end;
@@ -43,12 +42,11 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         context = getApplicationContext();
         resources = getResources();
-        relativeLayout = findViewById(R.id.relativeLayout);
         imageView = findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.c1map);
         //Obtain current and next room ids from other activity
         start = getIntent().getIntExtra("current", 120);
-        end = getIntent().getIntExtra("next", 110);
+        end = getIntent().getIntExtra("next", 140);
         //display info
         ((TextView)findViewById(R.id.CurrText)).setText("Current:"+ "\n" +"C1"+ start);
         ((TextView)findViewById(R.id.NextText)).setText("Next:"+ "\n"+"C1"+ end);
@@ -63,6 +61,9 @@ public class MainActivity2 extends AppCompatActivity {
      * @param v The clicked button view.
      */
 
+    public void testPoints(View v) {
+        int[] array = {110, 112, 104, 102, 106, 114, 120, 125, 126, 127, 130, 124, 123, 121, 122, 132, 133, 140, 144, 146, 145, 143, 142, 141, 154, 153, 152, 151, 150, 148, 149, 157, 156, 155};
+    }
     public void ShowButton(View v){
         //access colors from res>values>colors.xml
         int cyan = ContextCompat.getColor(context, R.color.cyan);

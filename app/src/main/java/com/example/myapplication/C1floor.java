@@ -86,56 +86,68 @@ public class C1floor {
         // Create a graph representing the C1 floor layout
         C1 = new Graph(70, num);
 
-        C1.addEdge(60, 14); // the edges between all the room in the C1 floor
-        C1.addEdge(60, 12);
-        C1.addEdge(60, 10);
-        C1.addEdge(60, 6);
-        C1.addEdge(60, 4);
-        C1.addEdge(60, 2);
-        C1.addEdge(60, 61);
-        C1.addEdge(61, 62);
-        C1.addEdge(62, 20);
-        C1.addEdge(62, 65);
-        C1.addEdge(65, 49);
-        C1.addEdge(65, 48);
-        C1.addEdge(20, 30);
-        C1.addEdge(20, 27);
-        C1.addEdge(20, 25);
-
-        C1.addEdge(20, 26);
-        C1.addEdge(20, 64);
-        C1.addEdge(64, 21);
-        C1.addEdge(64, 22);
-        C1.addEdge(64, 24);
-        C1.addEdge(64, 33);
-        C1.addEdge(64, 23);
-
-        C1.addEdge(64, 32);
-        C1.addEdge(65, 66);
-        C1.addEdge(66, 40);
-        C1.addEdge(40, 41);
-        C1.addEdge(40, 42);
-        C1.addEdge(40, 43);
-
-        C1.addEdge(40, 45);
-        C1.addEdge(40, 44);
-        C1.addEdge(40, 46);
-        C1.addEdge(40, 67);
-        C1.addEdge(67, 52);
-        C1.addEdge(67, 51);
-        C1.addEdge(67, 50);
-        C1.addEdge(67, 55);
-        C1.addEdge(67, 56);
-        C1.addEdge(67, 57);
-        C1.addEdge(67, 54);
-        C1.addEdge(67, 53);
-
+        // the edges between all the room in the C1 floor
+        C1.addEdge(14,  1);
+        C1.addEdge(12,  1);
+        C1.addEdge(1,  2);
+        C1.addEdge(2,  3);
+        C1.addEdge(10,  3);
+        C1.addEdge(3,  4);
+        C1.addEdge(4,  5);
+        C1.addEdge(5,  6);
+        C1.addEdge(20,  5);
+        C1.addEdge(20,  11);
+        C1.addEdge(26,  11);
+        C1.addEdge(11,  7);
+        C1.addEdge(25,  7);
+        C1.addEdge(7,  13);
+        C1.addEdge(27,  13);
+        C1.addEdge(30,  13);
+        C1.addEdge(13,  8);
+        C1.addEdge(8,  15);
+        C1.addEdge(32,  15);
+        C1.addEdge(33,  15);
+        C1.addEdge(8,  16);
+        C1.addEdge(16,  17);
+        C1.addEdge(24,  16);
+        C1.addEdge(17,  18);
+        C1.addEdge(23,  17);
+        C1.addEdge(21,  18);
+        C1.addEdge(22,  18);
+        C1.addEdge(40,  6);
+        C1.addEdge(40,  9);
+        C1.addEdge(46,  9);
+        C1.addEdge(9,  19);
+        C1.addEdge(19,  35);
+        C1.addEdge(44,  35);
+        C1.addEdge(35,  36);
+        C1.addEdge(43,  36);
+        C1.addEdge(36,  37);
+        C1.addEdge(42,  37);
+        C1.addEdge(37,  38);
+        C1.addEdge(41,  38);
+        C1.addEdge(19,  39);
+        C1.addEdge(39,  28);
+        C1.addEdge(55,  28);
+        C1.addEdge(28,  29);
+        C1.addEdge(56,  29);
+        C1.addEdge(57,  29);
+        C1.addEdge(39,  47);
+        C1.addEdge(54,  47);
+        C1.addEdge(47,  48);
+        C1.addEdge(53,  48);
+        C1.addEdge(48,  49);
+        C1.addEdge(52,  49);
+        C1.addEdge(49,  58);
+        C1.addEdge(51,  58);
+        C1.addEdge(50,  34);
+        C1.addEdge(58,  34);
     }
     public boolean check(int num){
         boolean result = false;
-        int[] array = {110,112,104,102,106,114,120,125,126,127,130,124,123,121,122,132,133,140,144,146,145,143,142,141,154,153,152,151,150,148,149,157,156,155};
+        int[] array = {110,112,114,120,125,126,127,130,124,123,121,122,132,133,140,144,146,145,143,142,141,154,153,152,151,150,148,149,157,156,155};
 
-        for (int i= 0; i < array.length; i++){
+        for(int i= 0; i < array.length; i++){
             if (num == array[i]){
                 result = true;
                 break;
