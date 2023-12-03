@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 /**
@@ -21,114 +21,127 @@ import com.google.android.material.textfield.TextInputEditText;
 public class MainActivity extends AppCompatActivity {
     private String currentRoom;
     private String nextRoom;
-    private TextInputEditText inputCurrentRoom;
-    private TextInputEditText inputNextRoom;
+    private TextInputLayout currentInput;
+    private TextInputLayout nextInput;
 
-    public MainActivity() {
-    }
 
-    private void checkInput();
-    /**
-     * Called when the activity is first created.
-     *
-     * @param savedInstanceState If the activity is being re-initialized after previously being
-     * shut down, this Bundle contains the data it most recently supplied
-     * in onSaveInstanceState(Bundle). Otherwise, it is null.
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        inputCurrentRoom = findViewById(R.id.currentInputlayout);
-        inputNextRoom = findViewById(R.id.nextInputLayout);
+
+        currentInput = findViewById(R.id.currentInputLayout);
+        nextInput = findViewById(R.id.nextInputLayout);
+
+        //initialize the map
+        C1floor c = new C1floor();
+        //Action when button is clicked
+        Button button = findViewById(R.id.confirmButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                checkInput(c);
+            }
+        });
     }
-    private boolean validateCurrentInput() {
-        String cInput = inputCurrentRoom.getEditText().getText().toString().trim();
 
-    }
-    /**
-     * Opens MainActivity2 to display the navigation path based on the entered current and next room numbers.
-     * @param v The View that was clicked.
-     */
 
-    public void openMainActivity2(View v){
 
-        //create
-        //C1floor c = new C1floor();
 
-        //if (!c.check(Integer.parseInt(currentRoom))){
-
-            Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-            intent.putExtra("current", Integer.parseInt(currentRoom));
-            intent.putExtra("next", Integer.parseInt(nextRoom));
-            startActivity(intent);
-        }
-    }
 
     /**
-     * Sets the current room number based on the user input.
-     * @param v The View that was clicked.
-     */
+     * Sets the next room number based on the user input.
+     * //@param //v The View that was clicked.
+     **/
 
-    private void checkInput(View v) {
-        {
-            if (!validateNextInput() | !validateCurrentInput()) {
-                return;
-            }
-
+    private void checkInput(C1floor c) {
+        //Function call to validateCurrentInput() and validateNextInput
+        //If either or both of the functions return false (invalid input), this will exit this function
+        if ( !validateCurrentInput(c)|!validateNextInput(c)) {
+            return;
         }
+        openMainActivity2();
 
 
     }
-        /**
-         * Sets the next room number based on the user input.
-         * @param v The View that was clicked.
-         **/
-        private boolean validateCurrentInput() {
 
-
+    //Input Validation functions
+    //  Tests the user input for NextRoom and displays errors in the TextInputLayout if the input is shorter than 3, no input,
+    //  Passes the C1floor c to check whether a room number is valid
+    private boolean validateCurrentInput(C1floor c) {
+        currentInput = findViewById(R.id.currentInputLayout);
+        int number;
+        String thisInput = currentInput.getEditText().getText().toString().trim();
+        if (thisInput.isEmpty()) {
+            currentInput.setError("Field cannot be empty");
+            return false;
         }
-        private boolean validateNextInput() {
-            TextInputEditText nextInput = findViewById(R.id.nextInputEditText);//gets the input from user
-
-            String roomNext = nextInput.getText().toString().trim();
-            if (roomNext.isEmpty()) {
-                nextInput.setError("Field cannot be empty");
+        if (thisInput.length() < 3) {
+            currentInput.setError("Input too short");
+            return false;
+        }
+        if (thisInput.length() > 3) {
+            currentInput.setError("Input length exceeded");
+            return false;
+        } else {
+            //call check(int) function in C1 to see whether the room is found. Displays error otherwise
+            number=Integer.parseInt(thisInput); //convert input from string to int
+            if (c.check(number) == false) {
+                currentInput.setError("invalid room number");
                 return false;
             }
-            if (roomNext.length() < 3) {
-                nextInput.setError("Input too short");
-                return false;
-            }
-            if (roomNext.length() > 3) {
-                nextInput.setError("Input length exceeded");
-                return false;
-            } else {
-                //call check function to see whether the 3digit input is a room
-                if (c.check(roomNext) == false) {
-                    nextInput.setError("invalid room number");
-                    return false;
-                } else
-                    nextInput.setError(null);
-                nextInput.setErrorEnabled(false);
+            else {
+                currentInput.setError(null);
+                currentInput.setErrorEnabled(false);
+                currentRoom = thisInput;
                 return true;
             }
         }
-    };
+    }
+    //Tests the user input for NextRoom and displays errors in the TextInputLayout if the input is shorter than 3, no input,
+    //Passes the C1floor to check whether a room number is valid
+    private boolean validateNextInput(C1floor c) {
+        int number;
+        String thisInput = nextInput.getEditText().getText().toString().trim();
 
-
-    public void NextInput(View v){
-        TextInputEditText num  = findViewById(R.id.editTextNext);//gets the input from user
-
-
-        String room = num.getText().toString(); // makes it a string because its initially a char
-
-        nextRoom = room;
-
-       // ((TextView)findViewById(R.id.TextNext)).setText("Next room: C1 - "+ NextN);
-
-
+        if (thisInput.isEmpty()) {
+            nextInput.setError("Field cannot be empty");
+            return false;
+        }
+        if (thisInput.length() < 3) {
+            nextInput.setError("Input too short");
+            return false;
+        }
+        //Likely redundant because of textInputEditText parameter
+        if (thisInput.length() > 3) {
+            nextInput.setError("Input length exceeded");
+            return false;
+        }
+        else {
+            //call check(int) function in C1 to see whether the room is found. Displays error otherwise
+            number = Integer.parseInt(thisInput); //convert input from string to int
+            if (c.check(number) == false) {
+                nextInput.setError("invalid room number");
+                return false;
+            }
+            else {
+                nextInput.setError(null);
+                nextInput.setErrorEnabled(false);
+                nextRoom = thisInput;
+                return true;
+            }
+        }
+    }
+    private void openMainActivity2(){
+        //if (!c.check(Integer.parseInt(currentRoom))){
+        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+        intent.putExtra("current", Integer.parseInt(currentRoom));
+        intent.putExtra("next", Integer.parseInt(nextRoom));
+        startActivity(intent);
     }
 
 }
+
+
+
+
