@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-import java.util.*;
 import java.util.LinkedList;
 
 
@@ -40,13 +39,17 @@ public class Graph {
 
 
     }
+    public LinkedList<Integer>[] getadj(){
+        return adj;
+
+    }
 
 
     public int[] getVisited() {
         return visited;
     }
 
-    public void addVisited(int i, int v){
+    private void addVisited(int i, int v){
         visited[i] = v;
 
     }
