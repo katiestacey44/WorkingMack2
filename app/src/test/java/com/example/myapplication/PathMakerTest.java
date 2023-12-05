@@ -10,17 +10,16 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(AndroidJUnit4.class)
-public class PathMakerInstrumentedTest {
+public class PathMakerTest {
 
     @Test
-    public void testPathGeneration() {
-        // Obtain the app's context using InstrumentationRegistry
-        // This is necessary for running Android Instrumented Tests
+    public void testPathGenerationWithScaling() {
+        // Get the app's context using InstrumentationRegistry
         android.content.Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        // Define a scaling factor and an array of room indices for testing
-        float scaler = 1.0f; // You can set your desired scaling factor
-        int[] roomIndices = { /* your room indices here */ };
+        // Set up test data
+        float scaler = 1.0f;
+        int[] roomIndices = { 20,12,14,20 };
 
         // Create an instance of PathMaker
         PathMaker pathMaker = new PathMaker(scaler, roomIndices);
@@ -29,15 +28,13 @@ public class PathMakerInstrumentedTest {
         Path generatedPath = pathMaker.getPath();
 
         // Assert that the generated path is not null
-        assertNotNull(generatedPath);
+        assertNotNull("Generated path should not be null", generatedPath);
 
-        // You can add more assertions based on your specific requirements
-        // For example, you might want to test that the path contains the expected number of segments,
-        // or that the scaled coordinates are correct for certain room indices.
-
-        // Example: Assert that the scaled x-coordinate for room index 10 is as expected
+        // Test a specific case (e.g., room index 10)
         float expectedX = 100.0f * scaler;
-        assertEquals(expectedX, pathMaker.getX(10), 0.001); // You can adjust the delta based on your precision requirements
+        assertEquals("X-coordinate for room index 10 should match", expectedX, pathMaker.getX(10), 0.001);
     }
-}
 
+    // Add more test methods for additional scenarios
+    // ...
+}
