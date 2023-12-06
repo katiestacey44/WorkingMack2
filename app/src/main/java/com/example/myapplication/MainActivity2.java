@@ -10,7 +10,6 @@ import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +23,7 @@ import androidx.core.content.ContextCompat;
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
     private Resources resources;
-    private ImageView imageView;
+    private ImageView imageView, labelView;
     private int start;
     private int end;
     private float scaleValValue;
@@ -43,12 +42,15 @@ public class MainActivity2 extends AppCompatActivity {
         resources = getResources();
         imageView = findViewById(R.id.imageView);
         imageView.setImageResource(R.drawable.c1map);
+        labelView = findViewById(R.id.labelView);
+        labelView.setVisibility(View.INVISIBLE) ;
+
         //Obtain current and next room ids from other activity
         start = getIntent().getIntExtra("current", 120);
         end = getIntent().getIntExtra("next", 140);
         //display info
-        ((TextView)findViewById(R.id.CurrText)).setText("Current:"+ "\n" +"C1"+ start);
-        ((TextView)findViewById(R.id.NextText)).setText("Next:"+ "\n"+"C1"+ end);
+        ((TextView)findViewById(R.id.CurrText)).setText(String.format("Current:\nC1%d", start));
+        ((TextView)findViewById(R.id.NextText)).setText(String.format("Next:\nC1%d", end));
 
 
         path = new Path();
@@ -90,7 +92,7 @@ public class MainActivity2 extends AppCompatActivity {
             canvas.drawCircle(c.getX(array2[i]+100), c.getY(array2[i]+100), 10, paint);
         };
 
-        ImageView map  = findViewById(R.id.pathDisplay);
+        ImageView map  = findViewById(R.id.imageView);
         map.setImageBitmap(bitmap);
 
     }
@@ -129,16 +131,18 @@ public class MainActivity2 extends AppCompatActivity {
         paint.setColor(red);
         canvas.drawCircle(c.getX(end),c.getY(end),20,paint);
 
-        ImageView map  = findViewById(R.id.pathDisplay);
+        ImageView map  = findViewById(R.id.imageView);
 
         map.setImageBitmap(bitmap);
 
     }
+    public void toggleLabels(View v) {
+        if(labelView.getVisibility()==View.INVISIBLE)
+            labelView.setVisibility(View.VISIBLE);
+        else
+            labelView.setVisibility(View.INVISIBLE);
+    }
 
-    /**
-     * Navigates back to the main activity when the "Go Back" button is clicked.
-     * @param v The clicked button view.
-     */
     public void GoBackButton(View v){
         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
         startActivity(intent);
