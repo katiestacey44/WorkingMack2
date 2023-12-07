@@ -25,7 +25,7 @@ public class ExampleInstrumentedTest {
         assertEquals("com.example.myapplication", appContext.getPackageName());
     }
     @Test
-    public void testGetY() {
+    public void testPMGetY() {
         // Get the application context using InstrumentationRegistry
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
@@ -39,7 +39,7 @@ public class ExampleInstrumentedTest {
 
     }
     @Test
-    public void testGetX() {
+    public void testPMGetX() {
         // Get the application context using InstrumentationRegistry
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
@@ -50,5 +50,29 @@ public class ExampleInstrumentedTest {
         assertEquals(2.75f*92, pathMaker.getX(2), 0.0);
 
 
+    }
+    @Test
+    public void testC1getX(){
+        C1floor c = new C1floor(2.75F, 110, 120);
+        assertEquals(2.75f*106, c.getX(110), 0.0);
+
+    }
+    @Test
+    public void testC1getY(){
+        C1floor c = new C1floor(2.75F, 110, 120);
+        assertEquals(2.75f*730, c.getY(110), 0.0);
+
+
+    }
+    @Test
+    public void testC1check(){
+        C1floor c = new C1floor(2.75F, 110, 120);
+        assertTrue(c.check(110));
+    }
+
+    @Test
+    public void testC1check2(){
+        C1floor c = new C1floor(2.75F, 110, 120);
+        assertTrue(!c.check(444));
     }
 }

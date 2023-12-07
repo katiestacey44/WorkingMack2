@@ -23,7 +23,6 @@ public class C1floor {
     }
     /**
      * Constructor for C1floor class.
-     *
      * @param scaleValr   Scaling factor for the path
      * @param currRoom    Current room number
      * @param nextRoom    Destination room number
