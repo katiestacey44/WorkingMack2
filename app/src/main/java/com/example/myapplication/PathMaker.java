@@ -45,10 +45,15 @@ public class PathMaker {
                 y = scaleVal * pointArray[Array[i]].getY();
                 P.lineTo(x, y);
             }
+            else{
+                break;
+            }
         }
 
 
     }
+
+
 
     /**
      * Get the scaled x-coordinate for a given room index.
@@ -154,11 +159,6 @@ public class PathMaker {
         pointArray[34] = new Point( 14, 255); //153?
 
     }
-
-
-
-
-
 
 
 }
