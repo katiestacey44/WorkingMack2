@@ -4,26 +4,27 @@ import java.util.LinkedList;
 
 
 public class Graph {
-    private int numNode;         //intialzing the number of nodes var
-    private int DesiredRoom; // initialzing the desired room number
+    private int numNode;         //initializing the number of nodes
+    private int desiredRoom; // initializing the desired next room number
 
-    private LinkedList<Integer> adj[];   //initializing the adjacency list
+    private LinkedList<Integer>[] adj;   //initializing the adjacency list
 
-    private int visited[];
+    private int[] visited;
 
     private int k;
 
     private boolean found;
 
     /**
-     * @param numRooms
+     *
      *  It takes an integer numRooms as an argument,
      * which represents the number of vertices in the graph.
-     *
+     * @param target: the id of the room that needs to be found
+     *  @param numRooms
      * When you create a Graph object,
      * you provide the number of vertices it should have.
      */
-    public Graph(int numRooms,  int desiredRoom) {
+    public Graph(int numRooms,  int target) {
         numNode = numRooms; // number of rooms that the floor has
         k =0;
         found = false;
@@ -31,7 +32,7 @@ public class Graph {
         visited = new int[numRooms];
         adj = new LinkedList[numRooms]; // Each element of this array will hold a linked list
         // Each linked list represents the list of adjacent vertices for a specific vertex in the graph.
-        DesiredRoom = desiredRoom;
+        desiredRoom = target;
         for (int i = 0; i < numRooms; i++) {
             adj[i] = new LinkedList();
 
@@ -57,7 +58,7 @@ public class Graph {
     /**
      * @param v vertex/room
      * @param w vertex/room
-     *  helps creates an adj. list of the bidirectional egdes in a graph by
+     *  helps creates an adj. list of the bidirectional edges in a graph by
      *  making two additions to the adj. list. One that add (v,w) and One that adds (w,v)
      */
     public void addEdge (int v, int w)
@@ -114,19 +115,19 @@ public class Graph {
 
     public void DFS(int v)
     {
-        boolean already[] = new boolean[numNode];
+        boolean[] already = new boolean[numNode];
         DFSUtil(v, already);
     }
 
     /**
      *
-     * @param roomNum the room/ vertice
+     * @param roomNum the room/ vertex
      * This method checks if the roomNum passed as an argument matches the DesiredRoom.
      * @return true if there is a match, indicating that the desired room has been found.
      */
     public boolean foundRoom(int roomNum)
     {
-        return roomNum == DesiredRoom; // returns true if the para  is equal to the  DesiredRoom, or false if not
+        return roomNum == desiredRoom; // returns true if the para  is equal to the  DesiredRoom, or false if not
     }
 
 }

@@ -99,16 +99,16 @@
         android:id="@+id/confirmButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:layout_marginStart="32dp"
-        android:text="Confirm"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/teal2"
-        />
+        android:text="Confirm"
+        tools:ignore="TextContrastCheck" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:scaleType="fitXY"
         app:srcCompat="@drawable/gradient2" />
 

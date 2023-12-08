@@ -16,9 +16,13 @@
             android:name=".MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.MyApplication" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyApplication"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="fullSensor"
+
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

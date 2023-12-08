@@ -2,7 +2,6 @@ package com.example.myapplication;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -22,7 +21,6 @@ import androidx.core.content.ContextCompat;
 
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
-    private Resources resources;
     private ImageView imageView, labelView;
     private int start;
     private int end;
@@ -39,29 +37,27 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         context = getApplicationContext();
-        resources = getResources();
         imageView = findViewById(R.id.imageView);
-        imageView.setImageResource(R.drawable.c1map);
         labelView = findViewById(R.id.labelView);
-        labelView.setVisibility(View.INVISIBLE) ;
+        labelView.setVisibility(View.INVISIBLE) ;//hide the labels initially
 
-        //Obtain current and next room ids from other activity
+        //Obtain current and next room ids MainActivity passed to intent
         start = getIntent().getIntExtra("current", 120);
         end = getIntent().getIntExtra("next", 140);
-        //display info
+        //display the room numbers in text boxes
         ((TextView)findViewById(R.id.CurrText)).setText(String.format("Current:\nC1%d", start));
         ((TextView)findViewById(R.id.NextText)).setText(String.format("Next:\nC1%d", end));
 
-
+        //initialize path object
         path = new Path();
 
     }
 
     /**
-     * Displays the path and room markers on the map when the "Show" button is clicked.
-     * @param v The clicked button view.
+     * this is a troubleshooting function to view and manually adjust the xy-coordinates of all path points
+     * displays the room points and path points in different colors
+     * @param v the view of the clicked button labeled "test".
      */
-    //Function to view all points to manually adjust their xy coordinates
     public void testPoints(View v) {
         scaleValValue = imageView.getWidth()/(float)200;
         C1floor c = new C1floor(scaleValValue,start, end);
@@ -82,68 +78,88 @@ public class MainActivity2 extends AppCompatActivity {
 
         //Displays all points
         paint.setColor(testColor); //rooms displayed as green
-        for (int i=0;i<array.length;i++)
-        {
-            canvas.drawCircle(c.getX(array[i]), c.getY(array[i]), 10, paint);
-        };
+        for (int j : array) {
+            canvas.drawCircle(c.getX(j), c.getY(j), 10, paint);
+        }
         paint.setColor(testColor2); //non-rooms shown as a different color
-        for (int i=0;i<array2.length;i++)
-        {
-            canvas.drawCircle(c.getX(array2[i]+100), c.getY(array2[i]+100), 10, paint);
-        };
+        for (int j : array2) {
+            canvas.drawCircle(c.getX(j + 100), c.getY(j + 100), 10, paint);
+        }
 
         ImageView map  = findViewById(R.id.imageView);
         map.setImageBitmap(bitmap);
 
     }
-    public void ShowButton(View v){
-        //access colors from res>values>colors.xml
+
+    /** Function that obtains the path from a C1floor method and draws the path on a bitmap
+     * precondition:variables start & end have been retrieved from intent for this to work
+     * postcondition: Sets a bitmap with a path drawn onto imageView
+     * @param v the view of the clicked button @1d/showButton
+     */
+    public void showButton(View v){
+        //access colors from android's res>values>colors.xml
         int cyan = ContextCompat.getColor(context, R.color.teal);
         int red = ContextCompat.getColor(context, R.color.red);
         int blue = ContextCompat.getColor(context, R.color.blue);
+
+
+        //Initialize canvas for drawing path
+        Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap); // path is drawn on the bitmap
+        Paint paint = new Paint(); //canvas uses paint
+
+        paint.setColor(cyan);
+        paint.setStrokeWidth(22); //line width
+        paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.STROKE);//STOKE style for drawing path/line
+
+
 
         //obtain scale value for the map on this device to pass to our path function
         scaleValValue = imageView.getWidth()/(float)200;
         C1floor c = new C1floor(scaleValValue,start, end);
 
 
-        //Initialize display
-        Bitmap bitmap = Bitmap.createBitmap(imageView.getWidth(), imageView.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-
-        paint.setColor(cyan);
-        paint.setStrokeWidth(22); //line width
-        paint.setAntiAlias(true);
-
-        paint.setStyle(Paint.Style.STROKE);//STOKE for drawLine/drawPath
-
-        //Get path
+        //Obtain the path from current room to next room
         path = c.getPath();
 
         //Display path and room markers
         canvas.drawPath(path, paint);
 
+
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
         paint.setColor(blue);
-
-        canvas.drawCircle(c.getX(start),c.getY(start),20,paint);
+        canvas.drawCircle(c.getX(start),c.getY(start),20,paint); // A blue circle = current room marker
         paint.setColor(red);
-        canvas.drawCircle(c.getX(end),c.getY(end),20,paint);
+        canvas.drawCircle(c.getX(end),c.getY(end),20,paint); // A red circle = next room marker
 
-        ImageView map  = findViewById(R.id.imageView);
+        //ImageView map  = findViewById(R.id.imageView);
 
-        map.setImageBitmap(bitmap);
+        imageView.setImageBitmap(bitmap); //Displays the path over the imageview background
 
     }
+
+    /**
+     * Toggling the switch will show/hide an overlay of room numbers over the c1map,
+     * Initial visibility: invisible
+     * @param v The View of the clicked switch.
+     */
     public void toggleLabels(View v) {
         if(labelView.getVisibility()==View.INVISIBLE)
+        {
             labelView.setVisibility(View.VISIBLE);
+        }
         else
+        {
             labelView.setVisibility(View.INVISIBLE);
+        }
     }
 
-    public void GoBackButton(View v){
+    /**
+     * Returns to MainActivity upon clicking the "Return" button
+     * @param v The View of the button clicked
+     */
+    public void goBack(View v){
         Intent intent = new Intent(MainActivity2.this, MainActivity.class);
         startActivity(intent);
     }
