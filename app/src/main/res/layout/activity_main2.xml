@@ -2,114 +2,143 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D21A2525"
-    tools:context=".MainActivity2">
+    tools:context=".MainActivity2" >
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/gradient2"
+        android:orientation="vertical"
+        android:textAlignment="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/dark"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="C1 Map"
+            android:textAlignment="gravity"
+            android:textColor="@color/palegrass2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/CurrText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:width="120dp"
+            android:background="@color/blue"
+            android:includeFontPadding="true"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="2.5dp"
+            android:paddingBottom="2.5dp"
+            android:text="Current"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/NextText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:includeFontPadding="true"
+            android:paddingStart="16dp"
+            android:paddingTop="2.5dp"
+            android:paddingEnd="2.5dp"
+            android:paddingBottom="5dp"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/toggle"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/banner"
+            android:buttonTint="#000000"
+            android:checked="false"
+            android:onClick="toggleLabels"
+            android:paddingStart="8dp"
+            android:text="Toggle room label"
+            android:textColor="@color/s3"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:thumbTint="@color/teal2" />
+
+        <Button
+            android:id="@+id/ShowButton"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="@color/butt"
+            android:onClick="ShowButton"
+            android:paddingHorizontal="-2dp"
+            android:text="Show Path"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/dark2"
+            android:onClick="testPoints"
+            android:text="test"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/linearLayout" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/banner"
+            android:onClick="GoBackButton"
+            android:text="Return"
+            android:textColor="@color/palegrass"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toRightOf="@id/CurrText"
-        android:background="@drawable/c1map"
-        app:srcCompat="@drawable/c1map" />
+        android:layout_marginTop="20dp"
+        android:layout_toEndOf="@id/linearLayout"
+        android:background="@drawable/c1map" />
 
-
-        <ImageView
-            android:id="@+id/labelView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/imageView"
-            android:layout_alignBottom="@+id/imageView"
-            app:srcCompat="@drawable/c"
-            tools:visibility="invisible" />
-
-    <Button
-        android:id="@+id/ShowButton"
+    <ImageView
+        android:id="@+id/labelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:backgroundTint="@color/butt"
-        android:onClick="ShowButton"
-        android:text="Show"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/CurrText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ShowButton"
-        android:width="120dp"
-        android:background="@color/blue"
-        android:includeFontPadding="true"
-        android:paddingStart="10dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="2.5dp"
-        android:paddingBottom="2.5dp"
-        android:text="Current"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/NextText"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/CurrText"
-        android:background="@color/red"
-        android:includeFontPadding="true"
-        android:paddingStart="10dp"
-        android:paddingTop="2.5dp"
-        android:paddingEnd="2.5dp"
-        android:paddingBottom="5dp"
-        android:text="Next"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/GoBackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/NextText"
-        android:layout_marginBottom="-55dp"
-        android:onClick="GoBackButton"
-        android:text="Return"
-        android:textSize="14sp"
-
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="12dp"
-        android:onClick="testPoints"
-        android:text="test"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@id/GoBackButton" />
-
-    <Switch
-        android:id="@+id/toggle"
-        android:layout_width="60dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="false"
-        android:layout_centerVertical="true"
-        android:onClick="toggleLabels"
-        android:text="Switch" />
+        android:layout_alignStart="@+id/imageView"
+        android:layout_alignTop="@+id/imageView"
+        app:srcCompat="@drawable/c"
+        tools:visibility="visible" />
 
 
 </RelativeLayout>

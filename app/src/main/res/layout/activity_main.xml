@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/palegrass2"
-
     tools:context=".MainActivity">
 
     <TextView
@@ -37,12 +36,13 @@
 
         android:textColorHint="@color/notblue"
         app:boxStrokeColor="@color/bleal"
-        app:boxBackgroundColor="@color/s1"
+        app:boxBackgroundColor="@color/s2"
 
         app:counterEnabled="true"
         app:counterMaxLength="3"
         app:errorEnabled="true"
         app:helperTextTextColor="@color/red"
+        app:boxStrokeErrorColor="@color/red"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,6 @@
         app:prefixTextColor="@color/notblue"
         app:counterTextColor="@color/notblue"
         >
-
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,8 +109,7 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleY="2.0"
-        android:scaleX="1.1"
+        android:scaleType="fitXY"
         app:srcCompat="@drawable/gradient2" />
 
 </LinearLayout>

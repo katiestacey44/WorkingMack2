@@ -98,7 +98,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
     public void ShowButton(View v){
         //access colors from res>values>colors.xml
-        int cyan = ContextCompat.getColor(context, R.color.cyan);
+        int cyan = ContextCompat.getColor(context, R.color.teal);
         int red = ContextCompat.getColor(context, R.color.red);
         int blue = ContextCompat.getColor(context, R.color.blue);
 
