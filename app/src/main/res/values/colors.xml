@@ -17,20 +17,20 @@
     <color name="banner">#355163</color>
 
     <color name="dark">#1F2629</color>
-    <color name="palegrass">#6EB5B3</color>
-    <color name="dark2">#193E5B</color>
+    <color name="paleAqua">#6EB5B3</color>
+    <color name="darkCerulean">#193E5B</color>
 
-    <color name="palegrass2">#B1C3C8</color>
-    <color name="notblue">#6F85FE</color>
+    <color name="paleBlueBG">#B1C3C8</color>
+    <color name="ultraviolet">#6F85FE</color>
     <color name="teal">#3ABECC</color>
-    <color name="teal2">#5BA1B3</color>
+    <color name="dullTeal">#5BA1B3</color>
 
-    <color name="bleal">#00E4E4</color>
+    <color name="Turquoise">#00E4E4</color>
     <color name="s1">#EDF7FE</color>
-    <color name="s2">#E4F4FB</color>
-    <color name="s3">#93B1C2</color>
-    <color name="s4">#3A4851</color>
-
+    <color name="lightGrey">#E4F4FB</color>
+    <color name="medGrey">#93B1C2</color>
+    <color name="grey">#3A4851</color>
+    <color name="textViewBG">#34454C</color>
 
 
 </resources>

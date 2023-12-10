@@ -22,8 +22,8 @@ import androidx.core.content.ContextCompat;
 public class MainActivity2 extends AppCompatActivity {
     private Context context;
     private ImageView imageView, labelView;
-    private int start;
-    private int end;
+    private int mStart;
+    private int mEnd;
     private float scaleValValue;
     private Path path;
 
@@ -37,16 +37,16 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         context = getApplicationContext();
-        imageView = findViewById(R.id.imageView);
-        labelView = findViewById(R.id.labelView);
+        imageView = findViewById(R.id.imageView_c1Map);
+        labelView = findViewById(R.id.imageView_RoomLabels);
         labelView.setVisibility(View.INVISIBLE) ;//hide the labels initially
 
         //Obtain current and next room ids MainActivity passed to intent
-        start = getIntent().getIntExtra("current", 120);
-        end = getIntent().getIntExtra("next", 140);
+        mStart = getIntent().getIntExtra("current", 120);
+        mEnd = getIntent().getIntExtra("next", 140);
         //display the room numbers in text boxes
-        ((TextView)findViewById(R.id.CurrText)).setText(String.format("Current:\nC1%d", start));
-        ((TextView)findViewById(R.id.NextText)).setText(String.format("Next:\nC1%d", end));
+        ((TextView)findViewById(R.id.CurrText)).setText((getString(R.string.current_c1_displaytxt + mStart)));
+        ((TextView)findViewById(R.id.NextText)).setText(String.format(getString(R.string.next_c1_displaytxt + mEnd)));
 
         //initialize path object
         path = new Path();
@@ -60,7 +60,7 @@ public class MainActivity2 extends AppCompatActivity {
      */
     public void testPoints(View v) {
         scaleValValue = imageView.getWidth()/(float)200;
-        C1floor c = new C1floor(scaleValValue,start, end);
+        C1floor c = new C1floor(scaleValValue,mStart, mEnd);
 
         //points for rooms in array, non-room in array2
         int[] array = {110, 112, 114, 120, 121, 122, 123, 124, 125, 126, 127, 130, 132, 133, 140, 144, 146, 143, 142, 141, 154, 153, 152, 151, 150,  157, 156, 155};
@@ -74,8 +74,7 @@ public class MainActivity2 extends AppCompatActivity {
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
-
-
+        
         //Displays all points
         paint.setColor(testColor); //rooms displayed as green
         for (int j : array) {
@@ -85,16 +84,14 @@ public class MainActivity2 extends AppCompatActivity {
         for (int j : array2) {
             canvas.drawCircle(c.getX(j + 100), c.getY(j + 100), 10, paint);
         }
-
-        ImageView map  = findViewById(R.id.imageView);
+        ImageView map  = findViewById(R.id.imageView_c1Map);
         map.setImageBitmap(bitmap);
-
     }
 
     /** Function that obtains the path from a C1floor method and draws the path on a bitmap
-     * precondition:variables start & end have been retrieved from intent for this to work
-     * postcondition: Sets a bitmap with a path drawn onto imageView
-     * @param v the view of the clicked button @1d/showButton
+     * precondition:variables mStart & mEnd have been retrieved from intent for this to work
+     * post-condition: Sets a bitmap with a path drawn onto imageView
+     * @param v the view of the clicked button @id/showButton
      */
     public void showButton(View v){
         //access colors from android's res>values>colors.xml
@@ -117,7 +114,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         //obtain scale value for the map on this device to pass to our path function
         scaleValValue = imageView.getWidth()/(float)200;
-        C1floor c = new C1floor(scaleValValue,start, end);
+        C1floor c = new C1floor(scaleValValue,mStart, mEnd);
 
 
         //Obtain the path from current room to next room
@@ -125,13 +122,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         //Display path and room markers
         canvas.drawPath(path, paint);
-
-
         paint.setStyle(Paint.Style.FILL); //FILL style to make circles
         paint.setColor(blue);
-        canvas.drawCircle(c.getX(start),c.getY(start),20,paint); // A blue circle = current room marker
+        canvas.drawCircle(c.getX(mStart),c.getY(mStart),20,paint); // A blue circle = current room marker
         paint.setColor(red);
-        canvas.drawCircle(c.getX(end),c.getY(end),20,paint); // A red circle = next room marker
+        canvas.drawCircle(c.getX(mEnd),c.getY(mEnd),20,paint); // A red circle = next room marker
 
         //ImageView map  = findViewById(R.id.imageView);
 
@@ -149,10 +144,7 @@ public class MainActivity2 extends AppCompatActivity {
         {
             labelView.setVisibility(View.VISIBLE);
         }
-        else
-        {
-            labelView.setVisibility(View.INVISIBLE);
-        }
+        else {labelView.setVisibility(View.INVISIBLE);}
     }
 
     /**

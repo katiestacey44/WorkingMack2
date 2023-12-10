@@ -27,9 +27,9 @@
             android:paddingStart="12dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="C1 Map"
+            android:text="@string/c1_map"
             android:textAlignment="gravity"
-            android:textColor="@color/palegrass2"
+            android:textColor="@color/paleBlueBG"
             android:textSize="20sp" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:paddingTop="5dp"
             android:paddingEnd="2.5dp"
             android:paddingBottom="2.5dp"
-            android:text="Current"
+            android:text="@string/current"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -58,14 +58,14 @@
             android:paddingTop="2.5dp"
             android:paddingEnd="2.5dp"
             android:paddingBottom="5dp"
-            android:text="Next"
+            android:text="@string/next"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
 
 
         <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/toggle"
+            android:id="@+id/toggleSwitch"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/banner"
@@ -73,14 +73,14 @@
             android:checked="false"
             android:onClick="toggleLabels"
             android:paddingStart="8dp"
-            android:text="Toggle room label"
-            android:textColor="@color/s3"
-            android:textSize="14dp"
+            android:text="@string/toggle_switch_text"
+            android:textColor="@color/medGrey"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:thumbTint="@color/teal2" />
+            app:thumbTint="@color/dullTeal" />
 
         <Button
-            android:id="@+id/ShowButton"
+            android:id="@+id/showPathButton"
             android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -91,7 +91,7 @@
             android:backgroundTint="@color/butt"
             android:onClick="showButton"
             android:paddingHorizontal="-2dp"
-            android:text="Show Path"
+            android:text="@string/show_path"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -102,9 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
             android:layout_marginBottom="12dp"
-            android:backgroundTint="@color/dark2"
+            android:backgroundTint="@color/darkCerulean"
             android:onClick="testPoints"
-            android:text="test"
+            android:text="@string/test"
             android:textSize="20sp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="@id/linearLayout" />
@@ -116,15 +116,15 @@
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/banner"
             android:onClick="goBack"
-            android:text="Return"
-            android:textColor="@color/palegrass"
+            android:text="@string/return_btnText"
+            android:textColor="@color/paleAqua"
             android:textSize="14sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_c1Map"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -133,13 +133,14 @@
         android:background="@drawable/c1map" />
 
     <ImageView
-        android:id="@+id/labelView"
+        android:id="@+id/imageView_RoomLabels"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_alignTop="@+id/imageView"
+        android:layout_alignStart="@+id/imageView_c1Map"
+        android:layout_alignTop="@+id/imageView_c1Map"
         app:srcCompat="@drawable/c"
-        tools:visibility="invisible" />
+        tools:visibility="invisible"
+        android:importantForAccessibility="no" />
 
 
 </RelativeLayout>

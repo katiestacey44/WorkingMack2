@@ -5,22 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/palegrass2"
+    android:background="@color/paleBlueBG"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textInstructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#34454C"
-
+        android:background="@color/textViewBG"
         android:elegantTextHeight="true"
         android:paddingStart="32dp"
         android:paddingTop="18dp"
         android:paddingEnd="16dp"
         android:paddingBottom="18dp"
-        android:text="Please input the room numbers for your Current Room and Next Room"
-        android:textColor="@color/palegrass"
+        android:text="@string/instruction_activity_main"
+        android:textColor="@color/paleAqua"
         android:textSize="8pt"
         android:textStyle="bold" />
 
@@ -32,12 +31,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:hint="Current Room"
+        android:hint="@string/current_room_textInput_hintText"
 
-        android:textColorHint="@color/notblue"
-        app:boxStrokeColor="@color/bleal"
-        app:boxBackgroundColor="@color/s2"
-
+        android:textColorHint="@color/ultraviolet"
+        app:boxStrokeColor="@color/Turquoise"
+        app:boxBackgroundColor="@color/lightGrey"
         app:counterEnabled="true"
         app:counterMaxLength="3"
         app:errorEnabled="true"
@@ -49,8 +47,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:prefixText="C1-"
-        app:prefixTextColor="@color/notblue"
-        app:counterTextColor="@color/notblue"
+        app:prefixTextColor="@color/ultraviolet"
+        app:counterTextColor="@color/ultraviolet"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -67,11 +65,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:hint="Next Room"
-        app:boxBackgroundColor="@color/s2"
-        android:textColorHint="@color/notblue"
+        android:hint="@string/next_room_InputText_hintText"
+        app:boxBackgroundColor="@color/lightGrey"
+        android:textColorHint="@color/ultraviolet"
         app:hintTextColor="@color/dark"
-        app:boxStrokeColor="@color/bleal"
+        app:boxStrokeColor="@color/Turquoise"
         app:boxStrokeErrorColor="@color/red"
         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
         app:counterEnabled="true"
@@ -82,8 +80,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:prefixText="C1-"
-        app:prefixTextColor="@color/notblue"
-        app:counterTextColor="@color/notblue"
+        app:prefixTextColor="@color/ultraviolet"
+        app:counterTextColor="@color/ultraviolet"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -101,16 +99,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:backgroundTint="@color/teal2"
-        android:text="Confirm"
+        android:backgroundTint="@color/dullTeal"
+        android:text="@string/confirm_btn_text"
         tools:ignore="TextContrastCheck" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/backgroundGradient"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/gradient2" />
+        app:srcCompat="@drawable/gradient2"
+         />
 
 </LinearLayout>
 

@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="title_activity_main2">MainActivity2</string>
+
+    <string name="instruction_activity_main">Please input the room numbers for your Current Room and Next Room</string>
+    <string name="next_room_InputText_hintText">Next Room</string>
+    <string name="current_room_textInput_hintText">Current Room</string>
+    <string name="confirm_btn_text">Confirm</string>
+    <string name="current_c1_displaytxt">Current:\nC1</string>
+    <string name="next_c1_displaytxt">Next:\nC1</string>
+    <string name="next">Next</string>
+    <string name="current">Current</string>
+    <string name="c1_map">C1 Map</string>
+    <string name="test">Test</string>
+    <string name="show_path">Show Path</string>
+    <string name="toggle_switch_text">Toggle room label</string>
+    <string name="return_btnText">Return</string>
+
+
 </resources>
