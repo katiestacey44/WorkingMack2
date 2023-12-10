@@ -8,10 +8,10 @@ import android.graphics.Path;
 
 public class C1floor {
 
-    private int[] visitedArr; // Array to keep track of visited rooms during DFS traversal
+    private int[] visitedArr ; // Array to keep track of visited rooms during DFS traversal
     // PathMaker and Path objects for generating and storing the navigation path
     private Path path;
-    private PathMaker p;
+    private PathMaker pt;
     private Graph graphC1; // Graph representing the floor layout
 
 
@@ -35,8 +35,8 @@ public class C1floor {
         visitedArr = graphC1.getVisited();
 
         // Create PathMaker and obtain the navigation path
-        p = new PathMaker(scaleValue,visitedArr);
-        path = p.getPath();
+        pt = new PathMaker(scaleValue,visitedArr);
+        path = pt.getPath();
     }
 
     /**
@@ -52,8 +52,9 @@ public class C1floor {
      */
     public float getX(int num){
         num -=100;
-        return p.getX(num);
+        return pt.getX(num);
     }
+
 
     /**
      * Get the y-coordinate for a given room.
@@ -63,18 +64,18 @@ public class C1floor {
 
     public float getY(int num){
         num -=100;
-        return p.getY(num);
+        return pt.getY(num);
     }
 
     /**
      * Add information about the floor layout to the graph.
      * creates a graph object called graphC1
-     * @param num Desired room number
+     * @param target Desired room number
      */
 
-    private void addInfo(int num){
+    private void addInfo(int target){
         // Create a graph representing the graphC1 floor layout
-        graphC1 = new Graph(70, num);
+        graphC1 = new Graph(70, target);
 
         // the edges between all the rooms in the C1 floor
         graphC1.addEdge(14,  1);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -19,8 +20,8 @@ import com.google.android.material.textfield.TextInputLayout;
 public class MainActivity extends AppCompatActivity {
     private String currentRoom;
     private String nextRoom;
-    private TextInputLayout mCurrentInput;
-    private TextInputLayout mNextInput;
+    private TextInputLayout currentInput;
+    private TextInputLayout nextInput;
 
 
 
@@ -29,15 +30,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mCurrentInput = findViewById(R.id.currentInputLayout);
-        mNextInput = findViewById(R.id.nextInputLayout);
+        currentInput = findViewById(R.id.currentInputLayout);
+        nextInput = findViewById(R.id.nextInputLayout);
 
         //instantiates a C1floor object representing our graph of rooms
         C1floor c = new C1floor();
         //Action when button is clicked
         Button button = findViewById(R.id.confirmButton);
-        button.setOnClickListener(v ->  //When button is clicked, check the input in the 2 input boxes
-            checkInput(c));
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) { //When button is clicked, check the input in the 2 input boxes
+                checkInput(c);
+            }
+        });
     }
 
 
@@ -46,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
 /**
  * Checks user input in the input boxes for current and next rooms by calling methods validateCurrentInput() and validateNextInput()
- * if both functions return true, mainActivity2 will be opened
- * @param  c the Clfloor is checked
+ * if both functions return true, mainactivity2 will be opened
+ * @param c, the C1floor object used to access a method check(int)
  */
 
     private void checkInput(C1floor c) {
@@ -66,33 +70,32 @@ public class MainActivity extends AppCompatActivity {
     //  Passes the C1floor c to check whether a room number is valid
     // For being valid, the input must be a 3digit number and be found in the list of rooms in C1floor
     private boolean validateCurrentInput(C1floor c) {
-        mCurrentInput = findViewById(R.id.currentInputLayout);
+        currentInput = findViewById(R.id.currentInputLayout);
         int number;
-        String thisInput = mCurrentInput.getEditText().getText().toString().trim();
+        String thisInput = currentInput.getEditText().getText().toString().trim();
         //Validate the input
         if (thisInput.isEmpty()) {
-            mCurrentInput.setError("Field cannot be empty");
+            currentInput.setError("Field cannot be empty");
             return false;
         }
         if (thisInput.length() < 3) {
-            mCurrentInput.setError("Input too short");
+            currentInput.setError("Input too short");
             return false;
         }
         if (thisInput.length() > 3) { //The input box limits input to 3, but just in case
-            mCurrentInput.setError("Input length exceeded");
+            currentInput.setError("Input length exceeded");
             return false;
         } else {
             //call check(int) function in C1 to see whether the room is found. Displays error otherwise
             number=Integer.parseInt(thisInput); //convert input from string to int
-            if (!c.check(number)) {
-                mCurrentInput.setError("invalid room number");
-                return false;
-            }
-            else { //Valid input, disable error message
-                mCurrentInput.setError(null);
-                mCurrentInput.setErrorEnabled(false);
+            if (c.check(number)) { //Valid input, disable error message
+                currentInput.setError(null);
+                currentInput.setErrorEnabled(false);
                 currentRoom = thisInput;
                 return true;
+            } else {
+                currentInput.setError("invalid room number");
+                return false;
             }
         }
     }
@@ -100,38 +103,38 @@ public class MainActivity extends AppCompatActivity {
     //Passes a C1floor object to call functions in C1floor to validate user input
     private boolean validateNextInput(C1floor c) {
         int number;
-        String curInput = mCurrentInput.getEditText().getText().toString().trim(); //convert user input into string
-        String thisInput = mNextInput.getEditText().getText().toString().trim(); //convert user input into string
+        String curInput = currentInput.getEditText().getText().toString().trim(); //convert user input into string
+        String thisInput = nextInput.getEditText().getText().toString().trim(); //convert user input into string
 
 
         if (thisInput.isEmpty()) {
-            mNextInput.setError("Field cannot be empty");
+            nextInput.setError("Field cannot be empty");
             return false;
         }
         if (thisInput.length() < 3) {
-            mNextInput.setError("Input too short");
+            nextInput.setError("Input too short");
             return false;
         }
         //Likely redundant because of textInputEditText parameter
         if (thisInput.length() > 3) {
-            mNextInput.setError("Input length exceeded");
+            nextInput.setError("Input length exceeded");
             return false;
         }
         if (thisInput.equals(curInput))
         {
-            mNextInput.setError("Current and Next cannot be the same room");
+            nextInput.setError("Current and Next cannot be the same room");
             return false;
         }
         else {
             //call to check(int) function in C1floor to see whether the room is found. Displays error otherwise
             number = Integer.parseInt(thisInput); //convert input from string to int
             if (!c.check(number)) {
-                mNextInput.setError("Invalid room number");
+                nextInput.setError("Invalid room number");
                 return false;
             }
             else {
-                mNextInput.setError(null);
-                mNextInput.setErrorEnabled(false);
+                nextInput.setError(null);
+                nextInput.setErrorEnabled(false);
                 nextRoom = thisInput;
                 return true;
             }

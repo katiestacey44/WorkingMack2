@@ -9,11 +9,11 @@ public class Graph {
 
     private LinkedList<Integer>[] adj;   //initializing the adjacency list
 
-    private int[] visited;
+    private int[] visited;//points that enter the path
 
     private int k;
 
-    private boolean found;
+    private boolean found; //indicates the path is complete
 
     /**
      *
