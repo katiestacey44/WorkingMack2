@@ -18,12 +18,12 @@ public class C1floor {
     public C1floor(){}
     /**
      * Constructor for C1floor class.
-     * @param scaleValue   Scaling factor for the path
+     * @param scaleW   Scaling factor for the path
      * @param currRoom    Current room number
      * @param nextRoom    Destination room number
      */
 
-    public C1floor(float scaleValue,int currRoom, int nextRoom) {
+    public C1floor(float scaleW,float scaleH, int currRoom, int nextRoom) {
         // Adjust room numbers to start from 0
         int currentRoom = currRoom - 100;
         int desiredRoom = nextRoom - 100;
@@ -35,7 +35,7 @@ public class C1floor {
         visitedArr = graphC1.getVisited();
 
         // Create PathMaker and obtain the navigation path
-        pt = new PathMaker(scaleValue,visitedArr);
+        pt = new PathMaker(scaleW,scaleH,visitedArr);
         path = pt.getPath();
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D21A2525"
+    android:background="@color/textViewBG"
     tools:context=".MainActivity2" >
 
 
@@ -69,7 +69,6 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@color/banner"
-            android:buttonTint="#000000"
             android:checked="false"
             android:onClick="toggleLabels"
             android:paddingStart="8dp"
@@ -96,18 +95,6 @@
             android:textStyle="bold" />
 
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginBottom="12dp"
-            android:backgroundTint="@color/darkCerulean"
-            android:onClick="testPoints"
-            android:text="@string/test"
-            android:textSize="20sp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@id/linearLayout" />
 
         <Button
             android:layout_width="wrap_content"
@@ -126,9 +113,11 @@
     <ImageView
         android:id="@+id/imageView_c1Map"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
         android:layout_marginStart="40dp"
         android:layout_marginTop="20dp"
+        android:layout_centerVertical="true"
         android:layout_toEndOf="@id/linearLayout"
         android:background="@drawable/c1map" />
 
@@ -138,9 +127,24 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageView_c1Map"
         android:layout_alignTop="@+id/imageView_c1Map"
+        android:importantForAccessibility="no"
         app:srcCompat="@drawable/c1_labels"
-        tools:visibility="invisible"
-        android:importantForAccessibility="no" />
+        tools:visibility="invisible" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/imageView_RoomLabels"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#05193E5B"
+        android:gravity="bottom|center_horizontal|end"
+        android:onClick="testPoints"
+        android:text="@string/test"
+        android:textColor="#0DFFFFFF"
+        android:textSize="20sp"
+        android:visibility="visible" />
 
 </RelativeLayout>

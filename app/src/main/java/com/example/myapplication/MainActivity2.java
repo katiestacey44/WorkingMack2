@@ -80,8 +80,9 @@ public class MainActivity2 extends AppCompatActivity {
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);//STROKE style for drawing mPath/line
         //obtain scale value for the map on this device to pass to our mPath function
-        float scale = imageView.getWidth()/(float)200;
-         C1floor c = new C1floor(scale,mStart, mEnd);
+        float scaleW = imageView.getWidth()/(float)200;
+        float scaleH=imageView.getHeight()/(float)796;
+         C1floor c = new C1floor(scaleW,scaleH,mStart, mEnd);
 
 
         //Obtain the mPath from current room to next room
@@ -121,8 +122,9 @@ public class MainActivity2 extends AppCompatActivity {
      */
 
     public void testPoints(View v) {
-        float scale = imageView.getWidth()/(float)200;
-        C1floor c = new C1floor(scale,mStart, mEnd);
+        float scaleW = imageView.getWidth()/(float)200;
+        float scaleH=imageView.getHeight()/(float)796;
+        C1floor c = new C1floor(scaleW,scaleH,mStart, mEnd);
 
         //points for rooms in array, non-room in array2
         int[] array = {110, 112, 114, 120, 121, 122, 123, 124, 125, 126, 127, 130, 132, 133, 140, 144, 146, 143, 142, 141, 154, 153, 152, 151, 150,  157, 156, 155};

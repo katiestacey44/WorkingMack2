@@ -13,19 +13,21 @@ public class PathMaker {
 
     private Point[] pointArray; // Array of Point objects representing room coordinates
 
-    private float scaleVal;  // Scaling factor for the path
+    private float scaledW;  // Scaling factor for the path
+    private float scaledH;
 
 
 
     /**
      * Constructor for the PathMaker class.
      *
-     * @param scaler Scaling factor for the path
+     * @param scaleW Scaling factor for the path
      * @param Array  Array of room indices
      */
 
-    public PathMaker(float scaler, int[] Array){
-        scaleVal  = scaler;
+    public PathMaker(float scaleW,float scaleH, int[] Array){
+        scaledW = scaleW;
+        scaledH=scaleH;
         P = new Path();
         pointArray = new Point[70];
 
@@ -33,16 +35,16 @@ public class PathMaker {
         addPoints();
 
         // Move to the starting point of the path
-        float x = scaleVal*pointArray[Array[0]].getX();
-        float y = scaleVal*pointArray[Array[0]].getY();
+        float x = scaleW*pointArray[Array[0]].getX();
+        float y = scaleH*pointArray[Array[0]].getY();
 
         P.moveTo(x, y);
 
         // Generate the path by connecting the rooms
         for (int i = 1; i < Array.length; i++){
             if (Array[i] != 0) {
-                x = scaleVal * pointArray[Array[i]].getX();
-                y = scaleVal * pointArray[Array[i]].getY();
+                x = scaleW * pointArray[Array[i]].getX();
+                y = scaleH * pointArray[Array[i]].getY();
                 P.lineTo(x, y);
             }
             else{
@@ -62,7 +64,7 @@ public class PathMaker {
      */
     public float getX(int num){
 
-    return pointArray[num].getX() * scaleVal;
+    return pointArray[num].getX() * scaledW;
 
     }
 
@@ -74,7 +76,7 @@ public class PathMaker {
 
     public float getY(int num){
 
-        return pointArray[num].getY() * scaleVal;
+        return pointArray[num].getY() * scaledH;
     }
 
     /**
