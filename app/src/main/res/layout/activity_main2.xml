@@ -106,7 +106,7 @@
             android:onClick="testPoints"
             android:text="@string/test"
             android:textSize="20sp"
-            android:visibility="invisible"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@id/linearLayout" />
 
         <Button
@@ -138,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/imageView_c1Map"
         android:layout_alignTop="@+id/imageView_c1Map"
-        app:srcCompat="@drawable/c"
+        app:srcCompat="@drawable/c1_labels"
         tools:visibility="invisible"
         android:importantForAccessibility="no" />
 
