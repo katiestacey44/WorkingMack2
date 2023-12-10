@@ -28,9 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
     private ImageView imageView, labelView;
     private int mStart;
     private int mEnd;
-    private float mScale;
     private Path mPath;
-
     /**
      * Called when the activity is first created.
      * Initializes the layout and retrieves data from the previous activity.
@@ -80,13 +78,10 @@ public class MainActivity2 extends AppCompatActivity {
         paint.setColor(cyan);
         paint.setStrokeWidth(22); //line width
         paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);//STOKE style for drawing mPath/line
-
-
-
+        paint.setStyle(Paint.Style.STROKE);//STROKE style for drawing mPath/line
         //obtain scale value for the map on this device to pass to our mPath function
-        mScale = imageView.getWidth()/(float)200;
-        C1floor c = new C1floor(mScale,mStart, mEnd);
+        float scale = imageView.getWidth()/(float)200;
+         C1floor c = new C1floor(scale,mStart, mEnd);
 
 
         //Obtain the mPath from current room to next room
@@ -126,8 +121,8 @@ public class MainActivity2 extends AppCompatActivity {
      */
 
     public void testPoints(View v) {
-        mScale = imageView.getWidth()/(float)200;
-        C1floor c = new C1floor(mScale,mStart, mEnd);
+        float scale = imageView.getWidth()/(float)200;
+        C1floor c = new C1floor(scale,mStart, mEnd);
 
         //points for rooms in array, non-room in array2
         int[] array = {110, 112, 114, 120, 121, 122, 123, 124, 125, 126, 127, 130, 132, 133, 140, 144, 146, 143, 142, 141, 154, 153, 152, 151, 150,  157, 156, 155};
@@ -151,7 +146,7 @@ public class MainActivity2 extends AppCompatActivity {
         for (int j : array2) {
             canvas.drawCircle(c.getX(j + 100), c.getY(j + 100), 10, paint);
         }
-        ImageView map  = findViewById(R.id.imageView_RoomLabels);
+        ImageView map  = findViewById(R.id.imageView_c1Map);
         map.setImageBitmap(bitmap);
     }
     /**

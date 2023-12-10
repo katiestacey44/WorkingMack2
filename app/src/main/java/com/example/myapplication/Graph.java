@@ -34,18 +34,19 @@ public class Graph {
         // Each linked list represents the list of adjacent vertices for a specific vertex in the graph.
         desiredRoom = target;
         for (int i = 0; i < numRooms; i++) {
-            adj[i] = new LinkedList();
-
+            adj[i] = new LinkedList<>();
         }
 
 
     }
-    public LinkedList<Integer>[] getadj(){
+    public LinkedList<Integer>[] getAdj(){
         return adj;
 
     }
 
-
+    /**
+     * allows other classes to obtain the visit
+     */
     public int[] getVisited() {
         return visited;
     }
@@ -73,7 +74,7 @@ public class Graph {
      * @param nodes A boolean array used to keep track of which vertices have been visited during the DFS traversal.
      * This method is a utility function for performing a depth-first search (DFS) starting from a given vertex.
      */
-    private void DFSUtil(int StartRoom, boolean nodes[])
+    private void DFSUtil(int StartRoom, boolean[] nodes)
     {
         nodes[StartRoom] = true;
         addVisited(k,StartRoom);

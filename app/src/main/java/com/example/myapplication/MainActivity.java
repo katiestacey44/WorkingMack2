@@ -18,10 +18,10 @@ import com.google.android.material.textfield.TextInputLayout;
  */
 
 public class MainActivity extends AppCompatActivity {
-    private String currentRoom;
-    private String nextRoom;
-    private TextInputLayout currentInput;
-    private TextInputLayout nextInput;
+    private String mCurrentRoom;
+    private String mNextRoom;
+    private TextInputLayout mCurrentInput;
+    private TextInputLayout mNextInput;
 
 
 
@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        currentInput = findViewById(R.id.currentInputLayout);
-        nextInput = findViewById(R.id.nextInputLayout);
+        mCurrentInput = findViewById(R.id.currentInputLayout);
+        mNextInput = findViewById(R.id.nextInputLayout);
 
         //instantiates a C1floor object representing our graph of rooms
         C1floor c = new C1floor();
@@ -70,31 +70,31 @@ public class MainActivity extends AppCompatActivity {
     //  Passes the C1floor c to check whether a room number is valid
     // For being valid, the input must be a 3digit number and be found in the list of rooms in C1floor
     private boolean validateCurrentInput(C1floor c) {
-        currentInput = findViewById(R.id.currentInputLayout);
+        mCurrentInput = findViewById(R.id.currentInputLayout);
         int number;
-        String thisInput = currentInput.getEditText().getText().toString().trim();
+        String thisInput = mCurrentInput.getEditText().getText().toString().trim();
         //Validate the input
         if (thisInput.isEmpty()) {
-            currentInput.setError("Field cannot be empty");
+            mCurrentInput.setError("Field cannot be empty");
             return false;
         }
         if (thisInput.length() < 3) {
-            currentInput.setError("Input too short");
+            mCurrentInput.setError("Input too short");
             return false;
         }
         if (thisInput.length() > 3) { //The input box limits input to 3, but just in case
-            currentInput.setError("Input length exceeded");
+            mCurrentInput.setError("Input length exceeded");
             return false;
         } else {
             //call check(int) function in C1 to see whether the room is found. Displays error otherwise
             number=Integer.parseInt(thisInput); //convert input from string to int
             if (c.check(number)) { //Valid input, disable error message
-                currentInput.setError(null);
-                currentInput.setErrorEnabled(false);
-                currentRoom = thisInput;
+                mCurrentInput.setError(null);
+                mCurrentInput.setErrorEnabled(false);
+                mCurrentRoom = thisInput;
                 return true;
             } else {
-                currentInput.setError("invalid room number");
+                mCurrentInput.setError("invalid room number");
                 return false;
             }
         }
@@ -103,39 +103,39 @@ public class MainActivity extends AppCompatActivity {
     //Passes a C1floor object to call functions in C1floor to validate user input
     private boolean validateNextInput(C1floor c) {
         int number;
-        String curInput = currentInput.getEditText().getText().toString().trim(); //convert user input into string
-        String thisInput = nextInput.getEditText().getText().toString().trim(); //convert user input into string
+        String curInput = mCurrentInput.getEditText().getText().toString().trim(); //convert user input into string
+        String thisInput = mNextInput.getEditText().getText().toString().trim(); //convert user input into string
 
 
         if (thisInput.isEmpty()) {
-            nextInput.setError("Field cannot be empty");
+            mNextInput.setError("Field cannot be empty");
             return false;
         }
         if (thisInput.length() < 3) {
-            nextInput.setError("Input too short");
+            mNextInput.setError("Input too short");
             return false;
         }
         //Likely redundant because of textInputEditText parameter
         if (thisInput.length() > 3) {
-            nextInput.setError("Input length exceeded");
+            mNextInput.setError("Input length exceeded");
             return false;
         }
         if (thisInput.equals(curInput))
         {
-            nextInput.setError("Current and Next cannot be the same room");
+            mNextInput.setError("Current and Next cannot be the same room");
             return false;
         }
         else {
             //call to check(int) function in C1floor to see whether the room is found. Displays error otherwise
             number = Integer.parseInt(thisInput); //convert input from string to int
             if (!c.check(number)) {
-                nextInput.setError("Invalid room number");
+                mNextInput.setError("Invalid room number");
                 return false;
             }
             else {
-                nextInput.setError(null);
-                nextInput.setErrorEnabled(false);
-                nextRoom = thisInput;
+                mNextInput.setError(null);
+                mNextInput.setErrorEnabled(false);
+                mNextRoom = thisInput;
                 return true;
             }
         }
@@ -146,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void openMainActivity2(){
         Intent intent = new Intent(MainActivity.this, MainActivity2.class);
-        intent.putExtra("current", Integer.parseInt(currentRoom));
-        intent.putExtra("next", Integer.parseInt(nextRoom));
+        intent.putExtra("current", Integer.parseInt(mCurrentRoom));
+        intent.putExtra("next", Integer.parseInt(mNextRoom));
         startActivity(intent);
     }
 

@@ -9,7 +9,7 @@ public class GraphTest extends TestCase {
 
     public void testGetVisited() {
         Graph g = new Graph(12, 3);
-        int Array[] = {10,4,1,3,0,0,0,0,0,0,0,0};
+        int[] array = {10,4,1,3,0,0,0,0,0,0,0,0};
 
         g.addEdge(10,4);
         g.addEdge(10,5);
@@ -18,7 +18,7 @@ public class GraphTest extends TestCase {
         g.addEdge(1,3);
         g.DFS(10);
 
-       assertTrue(Arrays.equals(Array, g.getVisited()));
+       assertTrue(Arrays.equals(array, g.getVisited()));
     }
 
     public void testAddEdge() {
@@ -28,7 +28,7 @@ public class GraphTest extends TestCase {
 
         boolean result = false;
         C1.addEdge(3, 5);
-        LinkedList<Integer>[] array = C1.getadj();
+        LinkedList<Integer>[] array = C1.getAdj();
         num2 = array[3].get(0);
         if (num == num2){
             result = true;
