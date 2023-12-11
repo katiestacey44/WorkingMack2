@@ -4,6 +4,8 @@ The Mackinac building is used by hundreds of students everyday, and includes mor
 # Introduction
 Using a graphic of the Mackinac floor plans the App will give directions from one classroom to the next to help students navigate through the building. The app utilizes DFS through an array of adjacency lists that connect the rooms together in a tree like fashion that represent rooms within the Mackinac building and calculate a path to give students direction towards their desired classroom.
 # Architectual design
+<img width="343" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/1e2dbc06-d6a4-4313-915f-3ec2b31eb8ef">
+
 
 
 # Use Case Diagram
@@ -15,6 +17,15 @@ Using a graphic of the Mackinac floor plans the App will give directions from on
 
 
 # UI
+<img width="333" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/b6e861fd-5f6d-4a73-9c00-320b4f784b76">
+<img width="318" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/02736e62-5833-4625-8e74-9731f7c9afc3">
+<img width="343" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/9e07390a-69af-4905-bcbf-03da548eefad">
+<img width="324" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/f4d3601b-15c6-4b2a-af00-1f0af932a1cf">
+
+
+
+
+
 
 
 # Risk analysis and Retrospective
