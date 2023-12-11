@@ -23,8 +23,8 @@ For the solutions to a lot of the issues we ran into, based on an idea of a non-
 
 
 # UI
-<img width="277" alt="image" src="https://github.com/katiestacey44/WorkingMack/assets/117104997/a42731e0-8d62-4771-8d9f-da038114c82e">
-<img width="336" alt="image" src="https://github.com/katiestacey44/WorkingMack/assets/117104997/a665f8a4-2adc-447d-84f8-3d92422168cf">
+
+
 
 
 
