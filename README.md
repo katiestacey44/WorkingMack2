@@ -15,6 +15,9 @@ Using a graphic of the Mackinac floor plans the App will give dircetions from on
 
 
 
+# Risk analysis and Retrospective
+For the risks of the project, it was risky to use Android Studio as it was something that both project members had no experience with but were lucky able to get the hang of in time to finish the project, with many youtube tutorials. There were a lot of problems with timing and when to start or finish a certain step in the planning process. It probably would have been better to start coding earlier but it also would have been nice to have done some more research on implementations of different search algorithms. Formulating the implementation for a map took the most time. Google API is not free, leaflet is html based, figuring out what would work with java in Android Studio IDE. There were also issues with testing android graphics. When it came to learning everything, it ended up being mostly a result of trial and error for the most part.
+For the solutions to a lot of the issues we ran into, based on an idea of a non-geographic map from leaflet, our team decided to implement a graph structure of points with xy-coordinates mapped to an image to allow the program to draw paths between rooms. A cleaned blueprint of the C1 wing of Mack was used for the map display. A Depth-First-Search method was used for finding the path between 2 arbitrary rooms in the graph. And also Android Studio’s methods Canvas and drawPath/drawLines were used to visualize the path on the UI using these xy-coordinates. A stronger set plan may have allowed for more time in research and learning of Android Studio but overall the project met the requirement and expectations we were hoping for. 
 
 
 
