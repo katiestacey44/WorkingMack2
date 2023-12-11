@@ -13,7 +13,6 @@ import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
- *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
@@ -31,10 +30,9 @@ public class ExampleInstrumentedTest {
 
         // use the context to create an instance of PathMaker
         int[] roomIndices = {1, 2, 3}; // Replace with your desired room indices for testing
-        PathMaker pathMaker = new PathMaker(2.75f, roomIndices);
+        PathMaker pathMaker = new PathMaker(2.75f,2.75F, roomIndices);
 
         assertEquals(2.75f*625, pathMaker.getY(2), 0.0);
-
 
 
     }
@@ -44,35 +42,33 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
         int[] roomIndices = {1, 2, 3}; // Replace with your desired room indices for testing
-        PathMaker pathMaker = new PathMaker(2.75f, roomIndices);
-
+        PathMaker pathMaker = new PathMaker(2.75f,2.75F, roomIndices);
 
         assertEquals(2.75f*92, pathMaker.getX(2), 0.0);
-
 
     }
     @Test
     public void testC1getX(){
-        C1floor c = new C1floor(2.75F, 110, 120);
+        C1floor c = new C1floor(2.75F,2.75F, 110, 120);
         assertEquals(2.75f*106, c.getX(110), 0.0);
 
     }
     @Test
     public void testC1getY(){
-        C1floor c = new C1floor(2.75F, 110, 120);
+        C1floor c = new C1floor(2.75F, 2.75F, 110, 120);
         assertEquals(2.75f*730, c.getY(110), 0.0);
 
 
     }
     @Test
     public void testC1check(){
-        C1floor c = new C1floor(2.75F, 110, 120);
+        C1floor c = new C1floor(2.75F,2.75F, 110, 120);
         assertTrue(c.check(110));
     }
 
     @Test
     public void testC1check2(){
-        C1floor c = new C1floor(2.75F, 110, 120);
+        C1floor c = new C1floor(2.75F,2.75F, 110, 120);
         assertTrue(!c.check(444));
     }
 }

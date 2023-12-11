@@ -44,4 +44,8 @@ public class GraphTest extends TestCase {
         Graph g = new Graph(10,20);
         assertTrue(g.foundRoom(20));
     }
+    public void testFoundRoom2() {
+        Graph g = new Graph(10,20);
+        assertTrue(!g.foundRoom(15));
+    }
 }
