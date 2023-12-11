@@ -21,6 +21,7 @@ Using a graphic of the Mackinac floor plans the App will give directions from on
 <img width="318" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/02736e62-5833-4625-8e74-9731f7c9afc3">
 <img width="343" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/9e07390a-69af-4905-bcbf-03da548eefad">
 <img width="324" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/f4d3601b-15c6-4b2a-af00-1f0af932a1cf">
+<img width="342" alt="image" src="(https://github.com/katiestacey44/WorkingMack2/assets/146682121/0cf0b22b-c2e5-4c37-8298-a6554da39d6e">
 
 
 
