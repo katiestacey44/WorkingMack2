@@ -41,9 +41,9 @@ The interface on the second screen displays the results of the path generation p
   
 ## 3.2 Second Screen's Interface
 <br/>
-<img height="650" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/02736e62-5833-4625-8e74-9731f7c9afc3">
-<img height="650" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/9e07390a-69af-4905-bcbf-03da548eefad">
-<img height="650" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/f4d3601b-15c6-4b2a-af00-1f0af932a1cf">
+<img height="630" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/02736e62-5833-4625-8e74-9731f7c9afc3">
+<img height="630" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/9e07390a-69af-4905-bcbf-03da548eefad">
+<img height="630" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/f4d3601b-15c6-4b2a-af00-1f0af932a1cf">
 
 
 
