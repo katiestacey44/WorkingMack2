@@ -4,12 +4,19 @@ The Mackinac building is used by hundreds of students everyday, and includes mor
 # 1. Introduction
 Using a graphic of the Mackinac floor plans the **MakPath** App will give directions from one classroom to the next to help students navigate through the building. The app utilizes DFS through an array of adjacency lists that connect the rooms together in a tree like fashion that represent rooms within the Mackinac building and calculate a path to give students direction towards their desired classroom.
 # 2. Architectual design
+<p align="center">
 <img width="343" alt="image" src="https://github.com/katiestacey44/WorkingMack2/assets/117104997/1e2dbc06-d6a4-4313-915f-3ec2b31eb8ef">
+<p/>
 <br/>
+  
 The app allows the user to interact with a simple Android user interface to input data which is sent to the logic layer of the program to process for path generation. The logic layer contains functions for interacting with a graph structure of points containing xy-coordinates to generate a path for the user<br/>
 The interface on the second screen displays the results of the path generation performed by the logic and data layers.
-<br/>A visualization of the points in the graph structure from which paths are drawn<br/>
-<img width="100"alt="points" src="https://github.com/katiestacey44/WorkingMack2/assets/146682121/bdb80ba2-7baf-47fe-b988-3bf4ae88fa32">
+<br/>
+<p align="center">
+  <br/>A visualization of the points in the graph structure from which paths are drawn<br/>
+  <img width="100"alt="points" src="https://github.com/katiestacey44/WorkingMack2/assets/146682121/bdb80ba2-7baf-47fe-b988-3bf4ae88fa32">
+<p/>
+
 
 
 
